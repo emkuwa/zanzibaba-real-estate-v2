@@ -1,0 +1,36 @@
+{
+  "_chairmanNote": "Update when audited group figures are available. Indicative only — not audited financials.",
+  "disclaimer": "Indicative figures for planning; not audited financials",
+  "metrics": [
+    {
+      "id": "years",
+      "value": "10+",
+      "label": "Years of Excellence",
+      "icon": "award",
+      "indicative": true
+    },
+    {
+      "id": "projects",
+      "value": "500+",
+      "label": "Projects Delivered",
+      "icon": "building",
+      "indicative": true
+    },
+    {
+      "id": "clients",
+      "value": "1000+",
+      "label": "Happy Clients",
+      "labelMobile": "Clients Served",
+      "icon": "people",
+      "indicative": true
+    },
+    {
+      "id": "coverage",
+      "value": "Across Zanzibar",
+      "label": "Serving Zanzibar with excellence",
+      "labelMobile": "Zanzibar",
+      "icon": "map",
+      "indicative": true
+    }
+  ]
+}

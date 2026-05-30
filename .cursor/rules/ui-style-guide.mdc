@@ -1,0 +1,47 @@
+---
+description: UI style guide — colors, typography, components
+globs: ["**/*.{tsx,css}"]
+---
+
+# UI style guide — Zanzibaba Real Estate v2
+
+Source of truth: `assets/branding/design-tokens.json` and `assets/branding/design-tokens.css`.
+
+## Colors
+
+| Token | Hex | Usage |
+|-------|-----|--------|
+| Navy | `#0A2E73` | Headers, nav, dark sections |
+| Navy deep | `#07245A` | Gradients, footer |
+| Gold | `#C89B3C` | Accents, CTAs, dividers |
+| Ink | `#0F172A` | Body text |
+| Muted | `#64748B` | Secondary text |
+| Surface | `#F8FAFC` | Section backgrounds |
+
+## Typography
+
+- **Display:** Cormorant Garamond — hero H1, section titles
+- **UI:** DM Sans — nav, body, buttons, cards
+
+## Layout
+
+- Mobile-first; max content width ~1280px for text blocks
+- Hero: full viewport height, layered photography from `assets/images/hero/`
+- Section rhythm: generous vertical padding (`spacing.16`+ from tokens)
+
+## Components (when built)
+
+- Navbar: `navbar-logo.png` or `navbar-compact.png` on scroll
+- Offerings grid: icons from `assets/icons/solutions/`
+- Footer: `footer-logo.png` on navy background
+
+## Imagery
+
+- Hero: `primary.jpg`, Stone Town set, `hero-zanzibar.png`
+- Avoid stock that conflicts with approved set in `assets/images/`
+
+## Accessibility
+
+- Minimum 4.5:1 contrast on body text
+- Alt text on all marketing photography
+- Focus rings on interactive elements (gold or navy outline)

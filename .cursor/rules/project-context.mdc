@@ -1,0 +1,56 @@
+---
+description: Project context for Cursor AI — brand, stack, and conventions
+alwaysApply: true
+---
+
+# Zanzibaba Real Estate v2 — Project Context
+
+## Brand identity
+
+| Item | Value |
+|------|-------|
+| **Brand** | Zanzibaba Group — Real Estate division |
+| **Primary color** | Navy `#0A2E73` |
+| **Accent** | Gold `#C89B3C` |
+| **Typography** | Cormorant Garamond (display), DM Sans (UI) |
+| **Logos** | `public/brand/logos/` (official RE logo), `assets/logos/png-masters/` |
+| **Tokens** | `assets/branding/design-tokens.json` |
+
+## Project purpose
+
+Greenfield rebuild of the **Chairman Real Estate marketing landing** for international investors and high-net-worth buyers in Zanzibar.
+
+- **Audience:** Investors, diaspora, luxury property buyers
+- **Language:** English primary; Swahili v2
+- **Geography:** Zanzibar, Tanzania
+
+## Design style
+
+Premium corporate portal: navy/gold, serif headlines, full-bleed hero photography, 14-section marketing narrative (not listings catalog as homepage).
+
+- Reference mockups: `assets/mockups/` (empty — add when approved)
+- UI details: `.cursor/rules/ui-style-guide.mdc`
+- Asset inventory: `docs/ASSET_INVENTORY.md`
+
+## Coding standards
+
+See `.cursor/rules/coding-rules.mdc` for full conventions.
+
+| Layer | Choice |
+|-------|--------|
+| Framework | Next.js 14 (planned — not initialized) |
+| UI | React Server Components + client islands as needed |
+| Styling | Tailwind CSS |
+| Deploy | Vercel |
+
+## Scope rules
+
+- **Canonical path:** `/Users/apple/Zanzibaba-Projects/active-projects/zanzibaba-real-estate-v2/`
+- **Do not** import or copy app code from `zanzibaba-real-estate` (v1)
+- **Phase 0:** assets + docs only until user approves website build
+- **Sibling:** v1 remains production until explicit cutover
+
+## Domain
+
+- Target: `realestate.zanzibaba.com`
+- Not `zanzibaba.com` group portal (that is a separate product surface)

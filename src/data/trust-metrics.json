@@ -1,0 +1,33 @@
+{
+  "disclaimer": "Indicative figures for planning; not audited financials",
+  "metrics": [
+    {
+      "id": "properties",
+      "value": "500",
+      "suffix": "+",
+      "label": "Properties Sold",
+      "icon": "building"
+    },
+    {
+      "id": "investors",
+      "value": "1000",
+      "suffix": "+",
+      "label": "International Investors",
+      "icon": "globe"
+    },
+    {
+      "id": "years",
+      "value": "12",
+      "suffix": "+",
+      "label": "Years Experience",
+      "icon": "award"
+    },
+    {
+      "id": "satisfaction",
+      "value": "95",
+      "suffix": "%",
+      "label": "Client Satisfaction",
+      "icon": "heart"
+    }
+  ]
+}

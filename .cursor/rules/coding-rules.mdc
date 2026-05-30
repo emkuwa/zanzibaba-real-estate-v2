@@ -1,0 +1,36 @@
+---
+description: Coding conventions for this project
+globs: ["**/*.{ts,tsx,js,json}"]
+---
+
+# Coding rules — zanzibaba-real-estate-v2
+
+## Phase 0 (current)
+
+- No `src/` or `package.json` yet — do not add pages until user approves build
+- Edit only under this project folder
+- New app code must be **written fresh**, not copied from `zanzibaba-real-estate`
+
+## When Phase 1 starts
+
+- TypeScript strict mode
+- App Router under `src/app/`
+- Portal route group: `src/app/(portal)/` for marketing landing
+- Data: move `content/reference/*` → `src/data/` and fix paths
+- Assets: sync `assets/` → `public/` for Next static serving
+- Run `npm run build` before marking tasks complete
+
+## Imports
+
+- Use `@/` path alias for `src/`
+- No cross-imports from sibling `active-projects/*`
+
+## Env
+
+- Secrets in `.env.local` only; document keys in `.env.example`
+- Never commit `.env` or API keys
+
+## Git
+
+- Independent repo; do not merge with v1 history
+- Commit only when user asks

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Zanzibaba Real Estate">
+  <title>Zanzibaba Real Estate</title>
+  <rect width="512" height="512" rx="96" fill="#0A2E73"/>
+  <path d="M0 0 H256 L0 256 Z" fill="#C89B3C"/>
+  <path d="M512 512 H256 L512 256 Z" fill="#C89B3C"/>
+  <path d="M144 122 L368 122 L144 390 L368 390 L144 122 Z" fill="#0A2E73" stroke="#07245A" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M144 122 L368 122 L144 256 L368 256 L144 122 Z" fill="#07245A"/>
+</svg>

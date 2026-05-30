@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 341" role="img" aria-label="Zanzibaba Real Estate">
+  <title>Zanzibaba Real Estate</title>
+  <!-- Icon emblem  visible on dark backgrounds -->
+  <g transform="translate(8 8)">
+    <rect width="325" height="325" rx="52" fill="#0A2E73"/>
+    <path d="M0 0 H162 L0 162 Z" fill="#C89B3C"/>
+    <path d="M325 325 H163 L325 163 Z" fill="#C89B3C"/>
+    <path d="M92 78 L233 78 L92 247 L233 247 L92 78 Z" fill="#0A2E73" stroke="#07245A" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M92 78 L233 78 L92 162 L233 162 L92 78 Z" fill="#07245A"/>
+  </g>
+  <!-- Reverse wordmark for navy/dark backgrounds -->
+  <text x="360" y="148" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="600" letter-spacing="6">ZANZIBABA</text>
+  <line x1="360" y1="198" x2="430" y2="198" stroke="#C89B3C" stroke-width="3"/>
+  <text x="500" y="198" fill="#C89B3C" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="600" letter-spacing="8" text-anchor="middle">REAL ESTATE</text>
+  <line x1="570" y1="198" x2="980" y2="198" stroke="#C89B3C" stroke-width="3"/>
+</svg>
