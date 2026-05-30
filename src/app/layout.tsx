@@ -10,8 +10,11 @@ import {
   WebSiteJsonLd,
   BreadcrumbJsonLd,
   AreaGuidesItemListJsonLd,
+  TouristDestinationJsonLd,
 } from "@/components/seo/JsonLd";
 import { DevServiceWorkerCleanup } from "@/components/DevServiceWorkerCleanup";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { MicrosoftClarity } from "@/components/MicrosoftClarity";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 
@@ -37,6 +40,8 @@ export default function RootLayout({
         )}
       >
         <DevServiceWorkerCleanup />
+        <GoogleAnalytics />
+        <MicrosoftClarity />
         <RealEstateJsonLd />
         <OrganizationJsonLd />
         <LocalBusinessJsonLd />
@@ -44,6 +49,7 @@ export default function RootLayout({
         <WebSiteJsonLd />
         <BreadcrumbJsonLd />
         <AreaGuidesItemListJsonLd />
+        <TouristDestinationJsonLd />
         {children}
       </body>
     </html>

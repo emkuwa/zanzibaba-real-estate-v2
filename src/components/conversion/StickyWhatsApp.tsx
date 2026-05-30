@@ -2,12 +2,15 @@
 
 import { whatsappUrl } from "@/data/site";
 
+import { trackWhatsAppClick } from "@/lib/gtag";
+
 export function StickyWhatsApp() {
   return (
     <a
       href={whatsappUrl()}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackWhatsAppClick("sticky_button")}
       className="fixed bottom-6 right-4 z-50 flex h-[3.75rem] w-[3.75rem] items-center justify-center rounded-full bg-[#25D366] text-white shadow-luxury transition hover:scale-105 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold sm:bottom-7 sm:right-6 sm:h-16 sm:w-16"
       aria-label="Chat on WhatsApp with Zanzibaba Real Estate advisory"
     >

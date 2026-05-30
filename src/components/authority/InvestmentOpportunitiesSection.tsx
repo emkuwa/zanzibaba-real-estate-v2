@@ -10,7 +10,7 @@ export function InvestmentOpportunitiesSection() {
   const cluster = TOPIC_CLUSTERS.find((c) => c.id === "investment")!;
 
   return (
-    <Section id="invest" className="bg-white py-7 md:py-10">
+    <Section id="invest" className="py-7 md:py-10">
       <SectionHeader
         eyebrow="Investment Opportunities"
         title="Invest in Zanzibar across multiple sectors"

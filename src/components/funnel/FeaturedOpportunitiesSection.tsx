@@ -4,6 +4,7 @@ import { Section, SectionHeader } from "@/components/ui/Section";
 import { LuxuryImage } from "@/components/ui/LuxuryImage";
 import { Button } from "@/components/ui/Button";
 import { scrollToId } from "@/lib/utils";
+import { trackCtaClick } from "@/lib/gtag";
 import { VISUAL_SYSTEM } from "@/data/visual-system";
 
 const FEATURED_OPPORTUNITIES = [
@@ -43,7 +44,7 @@ const FEATURED_OPPORTUNITIES = [
 
 export function FeaturedOpportunitiesSection() {
   return (
-    <Section id="opportunities" className="bg-white py-8 md:py-12">
+    <Section id="opportunities" className="py-8 md:py-12">
       <SectionHeader
         eyebrow="Featured Investment Themes"
         title="Premium Zanzibar Investment Opportunities"
@@ -81,7 +82,10 @@ export function FeaturedOpportunitiesSection() {
                 variant="outline"
                 size="sm"
                 className="mt-4 w-full"
-                onClick={() => scrollToId("qualify")}
+                onClick={() => {
+                  trackCtaClick(opportunity.cta, "featured_opportunities");
+                  scrollToId("qualify");
+                }}
               >
                 {opportunity.cta}
               </Button>
@@ -94,7 +98,10 @@ export function FeaturedOpportunitiesSection() {
         <Button
           variant="gold"
           size="lg"
-          onClick={() => scrollToId("qualify")}
+          onClick={() => {
+            trackCtaClick("Get Personalized Investment Recommendations", "featured_opportunities_bottom");
+            scrollToId("qualify");
+          }}
           className="px-8"
         >
           Get Personalized Investment Recommendations

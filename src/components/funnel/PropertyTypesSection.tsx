@@ -72,7 +72,7 @@ export function PropertyTypesSection() {
         </div>
       </Section>
 
-      <Section id="off-plan" className="relative overflow-hidden bg-navy py-7 text-white md:py-10">
+      <Section id="off-plan" dark className="relative overflow-hidden py-7 md:py-10">
         <div className="pointer-events-none absolute inset-0 opacity-25">
           <LuxuryImage
             asset={OFF_PLAN.image}

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { VISUAL_SYSTEM } from "@/data/visual-system";
 import { Button } from "@/components/ui/Button";
+import { trackFormSubmit } from "@/lib/gtag";
 
 export function LeadMagnetPopup() {
   const [show, setShow] = useState(false);
@@ -40,6 +41,7 @@ export function LeadMagnetPopup() {
         }),
       });
       setStatus("done");
+      trackFormSubmit("lead_magnet_guide");
       setTimeout(() => setShow(false), 2500);
     } catch {
       setStatus("idle");

@@ -11,6 +11,7 @@ import {
   type QualificationAnswers,
 } from "@/data/qualification";
 import { SITE, whatsappUrl } from "@/data/site";
+import { trackFormSubmit, trackWhatsAppClick } from "@/lib/gtag";
 import { Button } from "@/components/ui/Button";
 import { Section, SectionHeader } from "@/components/ui/Section";
 
@@ -117,6 +118,7 @@ export function QualificationFunnel() {
         }),
       });
       setStep("success");
+      trackFormSubmit("qualification_funnel");
     } finally {
       setSubmitting(false);
     }
@@ -246,6 +248,7 @@ export function QualificationFunnel() {
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackWhatsAppClick("qualification_success")}
                     className="mt-6 inline-block"
                   >
                     <Button variant="gold" size="lg">

@@ -11,6 +11,7 @@ import {
   isRentalIntent,
 } from "@/data/qualification";
 import { SITE, whatsappUrl } from "@/data/site";
+import { trackFormSubmit, trackChatAction, trackWhatsAppClick } from "@/lib/gtag";
 import { VISUAL_SYSTEM } from "@/data/visual-system";
 import Image from "next/image";
 
@@ -199,6 +200,7 @@ export function AIChatbot() {
         qualification: answers,
       }),
     });
+    trackFormSubmit("ai_chatbot");
     setMessages((m) => [
       ...m,
       {
@@ -228,7 +230,11 @@ export function AIChatbot() {
     <>
       <button
         type="button"
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          const nextOpen = !open;
+          trackChatAction(nextOpen ? "open" : "close");
+          setOpen(nextOpen);
+        }}
         className="fixed bottom-6 left-6 z-50 flex h-14 items-center gap-2 rounded-full bg-navy px-5 text-white shadow-luxury transition hover:bg-navy-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
         aria-label="Open Zanzibar AI Concierge"
       >
@@ -273,7 +279,10 @@ export function AIChatbot() {
               </div>
               <button
                 type="button"
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                trackChatAction("close");
+                setOpen(false);
+              }}
                 className="rounded p-1 hover:bg-white/10"
                 aria-label="Close chat"
               >
@@ -372,6 +381,7 @@ export function AIChatbot() {
                   href={whatsappUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick("ai_chatbot")}
                   className="text-xs text-gold hover:underline"
                 >
                   WhatsApp {SITE.phoneLocal}

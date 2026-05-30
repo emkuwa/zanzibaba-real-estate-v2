@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export function LifestyleGallerySection() {
   return (
-    <Section className="bg-navy-deep py-8 text-white md:py-12">
+    <Section dark className="py-8 md:py-12">
       <SectionHeader
         eyebrow="The Zanzibar Lifestyle"
         title="Where luxury living meets investment & rental demand"

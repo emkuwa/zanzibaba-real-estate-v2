@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import { EcosystemPageShell } from "@/components/ecosystem/EcosystemPageShell";
 import { ECOSYSTEM_MODULES, INTERNAL_AGENTS } from "@/ecosystem";
+import { SITE } from "@/data/site";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Zanzibar Investment Ecosystem",
+  title: "Zanzibar Investment Ecosystem — 9 Modules for Investors & Developers",
   description:
-    "Nine integrated modules — investor CRM, developer portal, opportunity database, intelligence hub, AI concierge, and more.",
+    "Explore the Zanzibar investment ecosystem: investor CRM, developer portal, opportunity database, intelligence hub, AI concierge, rentals & relocation, and more. Nine integrated modules for international buyers and developers.",
+  alternates: { canonical: `${SITE.url}/ecosystem` },
+  openGraph: {
+    title: "Zanzibar Investment Ecosystem — Complete Platform Overview",
+    description:
+      "Nine integrated modules covering investor CRM, developer portal, opportunity database, intelligence hub, AI concierge, and relocation — everything international buyers need to invest in Zanzibar real estate.",
+  },
 };
 
 export default function EcosystemPage() {
@@ -16,6 +24,7 @@ export default function EcosystemPage() {
       title="The Zanzibar Investment Ecosystem"
       description="A luxury investment platform combining real estate, tourism intelligence, developer partnerships, and AI-powered concierge — built for foreigners discovering Zanzibar."
     >
+      <Breadcrumb crumbs={[{ label: "Ecosystem", href: "/ecosystem" }]} />
       <section className="mb-12">
         <h2 className="font-serif text-2xl font-semibold text-navy-heading">Core modules</h2>
         <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

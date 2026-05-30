@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE } from "@/data/site";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { EcosystemPageShell } from "@/components/ecosystem/EcosystemPageShell";
 import { RENTAL_EXPERIENCES } from "@/data/seo-content";
 import { EXPAT_NOMAD_HUB } from "@/data/authority";
 
 export const metadata: Metadata = {
-  title: "Rentals & Relocation — Luxury Stays, Expats & Digital Nomads",
+  title: "Zanzibar Rentals & Relocation — Luxury Villas, Expat & Nomad Stays",
   description:
-    "Long-term rentals, expat relocation, digital nomad accommodation, and luxury villa concierge in Zanzibar.",
+    "Find premium Zanzibar rentals: luxury beachfront villas, long-term expat housing, digital nomad accommodation, and monthly stays. Personalised concierge matching for international renters.",
+  alternates: { canonical: `${SITE.url}/rentals` },
+  openGraph: {
+    title: "Zanzibar Rentals & Relocation — Luxury Beachfront Villas & Expat Housing",
+    description:
+      "Discover Zanzibar's finest rentals: luxury vacation villas, monthly beachfront stays, expat housing, and digital nomad accommodation. Personal concierge matching for international clients.",
+  },
 };
 
 export default function RentalsPage() {
@@ -17,6 +25,7 @@ export default function RentalsPage() {
       title="Live, work, and stay in Zanzibar"
       description="Luxury villa rentals, monthly beachfront stays, expat housing, and digital nomad relocation — coordinated by our concierge team."
     >
+      <Breadcrumb crumbs={[{ label: "Rentals", href: "/rentals" }]} />
       <section className="mb-10">
         <h2 className="font-serif text-xl font-semibold text-navy-heading">Rental experiences</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-2">

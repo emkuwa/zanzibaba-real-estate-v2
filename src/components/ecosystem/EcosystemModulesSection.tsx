@@ -7,7 +7,7 @@ import { scrollToId } from "@/lib/utils";
 
 export function EcosystemModulesSection() {
   return (
-    <Section id="ecosystem" className="bg-navy-deep py-8 text-white md:py-12">
+    <Section id="ecosystem" dark className="py-8 md:py-12">
       <SectionHeader
         eyebrow="Zanzibar Investment Ecosystem"
         title="Nine modules. One premium platform."

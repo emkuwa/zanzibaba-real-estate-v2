@@ -19,21 +19,27 @@ export const SITE = {
 } as const;
 
 export const SEO_KEYWORDS = [
-  // Real estate
+  // Primary real estate
   "Zanzibar real estate",
+  "Zanzibar property",
   "property for sale Zanzibar",
   "luxury villas Zanzibar",
   "off-plan property Zanzibar",
   "land investment Zanzibar",
   "beachfront property Zanzibar",
   "Zanzibar investment property",
-  // Tourism
+  "Zanzibar villas",
+  "beachfront land Zanzibar",
+  "Zanzibar investment opportunities",
+  // Tourism & travel
   "best places in Zanzibar",
   "luxury travel Zanzibar",
   "Zanzibar beaches",
   "Zanzibar holiday guide",
   "things to do in Zanzibar",
-  // Investment
+  "Zanzibar luxury resorts",
+  "Zanzibar tourism 2026",
+  // Investment & business
   "invest in Zanzibar",
   "Zanzibar business opportunities",
   "tourism investment Zanzibar",
@@ -41,28 +47,39 @@ export const SEO_KEYWORDS = [
   "real estate ROI Zanzibar",
   "Zanzibar Airbnb investment",
   "Zanzibar investment ecosystem",
-  // Relocation
+  "Zanzibar foreign ownership",
+  "buy property in Zanzibar as foreigner",
+  // Relocation & expat
   "living in Zanzibar",
   "moving to Zanzibar",
   "expat life Zanzibar",
   "digital nomad Zanzibar",
   "long-term stay Zanzibar",
   "expat housing Zanzibar",
+  "relocate to Zanzibar",
+  "Zanzibar retirement",
   // Rentals
   "luxury villa rental Zanzibar",
   "Zanzibar beachfront rental",
   "monthly rental Zanzibar",
   "digital nomad Zanzibar accommodation",
-  // Business
+  "Zanzibar holiday villa",
+  // Business & development
   "developments in Zanzibar",
   "infrastructure projects Zanzibar",
   "hotel development opportunities",
   "Zanzibar economy",
+  "Zanzibar off-plan investment",
+  // Area-specific
+  "Paje Zanzibar real estate",
+  "Nungwi luxury property",
+  "Stone Town investment",
 ] as const;
 
 export const NAV_LINKS = [
   { href: "/opportunities", label: "Opportunities" },
   { href: "/intelligence", label: "Intelligence" },
+  { href: "/insights", label: "Insights" },
   { href: "/rentals", label: "Rentals" },
   { href: "/ecosystem", label: "Ecosystem" },
   { href: "/#qualify", label: "Concierge" },

@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export function InvestorPathwaysSection() {
   return (
-    <Section id="pathways" className="bg-white py-7 md:py-10">
+    <Section id="pathways" className="py-7 md:py-10">
       <SectionHeader
         eyebrow="Your Zanzibar Journey"
         title="Invest, buy, or rent luxury property"

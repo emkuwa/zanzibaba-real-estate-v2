@@ -1,7 +1,6 @@
 import { SITE } from "@/data/site";
 import { BRAND_LOGO } from "@/data/brand";
-import { ALL_FAQ_ITEMS } from "@/data/authority";
-import { AREA_GUIDES } from "@/data/authority";
+import { ALL_FAQ_ITEMS, AREA_GUIDES } from "@/data/authority";
 
 export function RealEstateJsonLd() {
   const jsonLd = {
@@ -179,9 +178,137 @@ export function BreadcrumbJsonLd() {
       { "@type": "ListItem", position: 2, name: "Why Zanzibar", item: `${SITE.url}/#why-zanzibar` },
       { "@type": "ListItem", position: 3, name: "Investment", item: `${SITE.url}/#invest` },
       { "@type": "ListItem", position: 4, name: "Area Guides", item: `${SITE.url}/#areas` },
-      { "@type": "ListItem", position: 5, name: "Tourism", item: `${SITE.url}/#tourism` },
-      { "@type": "ListItem", position: 6, name: "Insights", item: `${SITE.url}/insights` },
+      { "@type": "ListItem", position: 5, name: "Properties", item: `${SITE.url}/opportunities` },
+      { "@type": "ListItem", position: 6, name: "Tourism", item: `${SITE.url}/#tourism` },
+      { "@type": "ListItem", position: 7, name: "Insights", item: `${SITE.url}/insights` },
+      { "@type": "ListItem", position: 8, name: "Intelligence", item: `${SITE.url}/intelligence` },
     ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+export function ArticleJsonLd({
+  title,
+  description,
+  imageUrl,
+  datePublished,
+  dateModified,
+  authorName = "Zanzibaba Advisory Team",
+  url,
+}: {
+  title: string;
+  description: string;
+  imageUrl?: string;
+  datePublished: string;
+  dateModified?: string;
+  authorName?: string;
+  url: string;
+}) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    image: imageUrl ?? `${SITE.url}${BRAND_LOGO.og}`,
+    datePublished,
+    dateModified: dateModified ?? datePublished,
+    author: {
+      "@type": "Organization",
+      name: authorName,
+      url: SITE.url,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.legalName,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE.url}${BRAND_LOGO.primary.png}`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+export function ProductJsonLd({
+  name,
+  description,
+  imageUrl,
+  price,
+  priceCurrency = "USD",
+  url,
+}: {
+  name: string;
+  description: string;
+  imageUrl?: string;
+  price?: string;
+  priceCurrency?: string;
+  url: string;
+}) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name,
+    description,
+    image: imageUrl ?? `${SITE.url}${BRAND_LOGO.og}`,
+    offers: {
+      "@type": "Offer",
+      price,
+      priceCurrency,
+      availability: "https://schema.org/InStock",
+      url,
+    },
+    category: "RealEstate",
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+export function TouristDestinationJsonLd() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    name: "Zanzibar, Tanzania",
+    description: "Indian Ocean archipelago — luxury tourism, real estate investment, beachfront villas, and cultural heritage destination.",
+    touristType: [
+      "Luxury Travellers",
+      "Real Estate Investors",
+      "Digital Nomads",
+      "Expats",
+      "Holiday Makers",
+    ],
+    includesAttraction: [
+      { "@type": "TouristAttraction", name: "Stone Town — UNESCO World Heritage Site" },
+      { "@type": "TouristAttraction", name: "Paje Beach — Kitesurfing Capital" },
+      { "@type": "TouristAttraction", name: "Nungwi — Luxury Resort Corridor" },
+      { "@type": "TouristAttraction", name: "Mnemba Atoll — Snorkelling & Diving" },
+      { "@type": "TouristAttraction", name: "Jozani Forest — Red Colobus Monkeys" },
+    ],
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -6.262,
+      longitude: 39.543,
+    },
   };
 
   return (

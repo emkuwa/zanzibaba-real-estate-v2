@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export function LifestyleMarketingSection() {
   return (
-    <Section id="lifestyle" className="bg-white py-7 md:py-10">
+    <Section id="lifestyle" className="py-7 md:py-10">
       <SectionHeader
         eyebrow="Tropical Lifestyle"
         title="Live the Zanzibar dream — invest, own, or rent"

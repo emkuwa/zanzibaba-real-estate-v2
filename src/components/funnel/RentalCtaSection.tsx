@@ -6,7 +6,7 @@ import { scrollToId } from "@/lib/utils";
 
 export function RentalCtaSection() {
   return (
-    <Section className="bg-navy-deep py-8 text-white md:py-12">
+    <Section dark className="py-8 md:py-12">
       <div className="mx-auto max-w-4xl text-center">
         <p className="text-[13px] font-semibold uppercase tracking-[0.18em] text-gold">
           Your Zanzibar Concierge

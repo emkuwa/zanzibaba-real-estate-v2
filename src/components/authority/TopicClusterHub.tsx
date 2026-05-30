@@ -1,12 +1,14 @@
 "use client";
 
 import { TOPIC_CLUSTERS } from "@/data/authority";
+import { ARTICLES } from "@/data/articles";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { scrollToId } from "@/lib/utils";
+import Link from "next/link";
 
 export function TopicClusterHub() {
   return (
-    <Section id="discover" className="border-b border-border/60 bg-white py-7 md:py-10">
+    <Section id="discover" className="border-b border-border/60 py-7 md:py-10">
       <SectionHeader
         eyebrow="Zanzibar Authority Hub"
         title="Your definitive guide to Zanzibar"
@@ -33,6 +35,29 @@ export function TopicClusterHub() {
             </p>
           </button>
         ))}
+      </div>
+
+      {/* Internal links to featured articles */}
+      <div className="mt-6 border-t border-border/40 pt-6">
+        <span className="text-[12px] font-semibold uppercase tracking-[0.12em] text-muted">
+          Featured articles
+        </span>
+        <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {ARTICLES.slice(0, 3).map((article) => (
+            <Link
+              key={article.slug}
+              href={`/insights/${article.slug}`}
+              className="rounded-luxury border border-border/70 p-3 text-left transition hover:border-gold/40 hover:shadow-sm"
+            >
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-gold">
+                {article.category}
+              </span>
+              <h4 className="mt-1 font-serif text-[14px] font-semibold text-navy-heading line-clamp-2">
+                {article.title}
+              </h4>
+            </Link>
+          ))}
+        </div>
       </div>
     </Section>
   );

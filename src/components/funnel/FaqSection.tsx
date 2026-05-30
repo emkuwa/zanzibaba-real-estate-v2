@@ -5,6 +5,7 @@ import { ALL_FAQ_ITEMS } from "@/data/authority";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { scrollToId } from "@/lib/utils";
+import { trackCtaClick } from "@/lib/gtag";
 import { cn } from "@/lib/utils";
 
 export function FaqSection() {
@@ -72,7 +73,10 @@ export function FaqSection() {
           variant="gold"
           size="lg"
           className="mt-5 w-full sm:w-auto md:mt-6"
-          onClick={() => scrollToId("qualify")}
+          onClick={() => {
+            trackCtaClick("Talk to Zanzibar Concierge", "faq_section");
+            scrollToId("qualify");
+          }}
         >
           Talk to Zanzibar Concierge
         </Button>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { scrollToId } from "@/lib/utils";
+import { trackCtaClick } from "@/lib/gtag";
 
 export function ExitIntentPopup() {
   const [show, setShow] = useState(false);
@@ -72,6 +73,7 @@ export function ExitIntentPopup() {
                 size="lg"
                 className="w-full"
                 onClick={() => {
+                  trackCtaClick("Get Matched Now", "exit_intent_popup");
                   dismiss();
                   scrollToId("qualify");
                 }}

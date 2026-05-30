@@ -10,7 +10,7 @@ export function BusinessDevelopmentSection() {
   const cluster = TOPIC_CLUSTERS.find((c) => c.id === "business")!;
 
   return (
-    <Section id="business" className="bg-navy-deep py-8 text-white md:py-12">
+    <Section id="business" dark className="py-8 md:py-12">
       <SectionHeader
         eyebrow={BUSINESS_DEVELOPMENT.eyebrow}
         title={BUSINESS_DEVELOPMENT.title}

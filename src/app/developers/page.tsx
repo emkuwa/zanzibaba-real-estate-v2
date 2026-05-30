@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE } from "@/data/site";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { EcosystemPageShell } from "@/components/ecosystem/EcosystemPageShell";
 import {
   DEVELOPERS,
@@ -8,9 +10,15 @@ import {
 import { opportunityImagePath } from "@/lib/ecosystem/utils";
 
 export const metadata: Metadata = {
-  title: "Developer Portal — Verified Projects & ROI",
+  title: "Zanzibar Developer Portal — Verified Property Projects & ROI Data",
   description:
-    "Verified Zanzibar developers, off-plan projects, ROI estimates, galleries, and investor fit matching.",
+    "Browse verified Zanzibar real estate developers, off-plan investment projects, ROI estimates, project galleries, and investor fit matching. Find your next Zanzibar property development opportunity.",
+  alternates: { canonical: `${SITE.url}/developers` },
+  openGraph: {
+    title: "Zanzibar Developer Portal — Verified Developers & Off-Plan Projects",
+    description:
+      "Access verified Zanzibar property developers, off-plan investment projects with ROI data, project galleries, and location intelligence for informed real estate investment decisions.",
+  },
 };
 
 export default function DevelopersPage() {
@@ -20,6 +28,7 @@ export default function DevelopersPage() {
       title="Verified developers & investment projects"
       description="Developer profiles, project ROI, location intelligence, and investor fit — syndicated through the Zanzibaba ecosystem."
     >
+      <Breadcrumb crumbs={[{ label: "Developers", href: "/developers" }]} />
       <div className="space-y-10">
         {DEVELOPERS.map((dev) => {
           const projects = DEVELOPER_PROJECTS.filter((p) => p.developerId === dev.id);

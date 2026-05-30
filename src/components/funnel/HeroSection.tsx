@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { GlassCard } from "@/components/ui/Section";
 import { LuxuryBackground } from "@/components/ui/LuxuryImage";
 import { scrollToId } from "@/lib/utils";
+import { trackFormSubmit, trackCtaClick } from "@/lib/gtag";
 import { useState } from "react";
 
 const inputClass =
@@ -31,6 +32,7 @@ export function HeroSection() {
         }),
       });
       setQuickStatus("done");
+      trackFormSubmit("hero_quick_form");
     } catch {
       setQuickStatus("idle");
     }
@@ -67,7 +69,10 @@ export function HeroSection() {
               variant="gold"
               size="lg"
               className="w-full shadow-premium sm:w-auto"
-              onClick={() => scrollToId("ecosystem")}
+              onClick={() => {
+                trackCtaClick("Explore Ecosystem", "hero_section");
+                scrollToId("ecosystem");
+              }}
             >
               Explore Ecosystem
             </Button>
@@ -75,7 +80,10 @@ export function HeroSection() {
               variant="secondary"
               size="lg"
               className="w-full border-white/40 bg-white/15 text-white hover:bg-white/25 sm:w-auto"
-              onClick={() => scrollToId("qualify")}
+              onClick={() => {
+                trackCtaClick("AI Concierge Match", "hero_section");
+                scrollToId("qualify");
+              }}
             >
               AI Concierge Match
             </Button>
@@ -83,7 +91,10 @@ export function HeroSection() {
               variant="secondary"
               size="lg"
               className="w-full border-white/40 bg-white/15 text-white hover:bg-white/25 sm:w-auto"
-              onClick={() => scrollToId("invest")}
+              onClick={() => {
+                trackCtaClick("View Opportunities", "hero_section");
+                scrollToId("invest");
+              }}
             >
               View Opportunities
             </Button>

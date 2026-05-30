@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE } from "@/data/site";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { EcosystemPageShell } from "@/components/ecosystem/EcosystemPageShell";
 import { INTELLIGENCE_FEED, INTELLIGENCE_CATEGORIES } from "@/ecosystem/data/intelligence";
 
 export const metadata: Metadata = {
-  title: "Zanzibar Intelligence Hub — Market Reports & Infrastructure",
+  title: "Zanzibar Intelligence Hub — Market Reports & Investment News",
   description:
-    "Investment news, infrastructure updates, market reports, and area growth insights for Zanzibar investors.",
+    "Stay informed with Zanzibar investment intelligence: market reports, infrastructure project updates, area growth insights, and investment news for international real estate investors.",
+  alternates: { canonical: `${SITE.url}/intelligence` },
+  openGraph: {
+    title: "Zanzibar Intelligence Hub — Market Reports for Property Investors",
+    description:
+      "Access comprehensive Zanzibar investment intelligence: market trends, infrastructure developments, area growth analysis, and property investment news curated for international buyers.",
+  },
 };
 
 export default function IntelligencePage() {
@@ -16,6 +24,7 @@ export default function IntelligencePage() {
       title="Zanzibar investment intelligence"
       description="Market reports, infrastructure updates, area growth insights, and investment news — published for SEO authority and investor decision-making."
     >
+      <Breadcrumb crumbs={[{ label: "Intelligence", href: "/intelligence" }]} />
       <div className="mb-8 flex flex-wrap gap-2">
         {INTELLIGENCE_CATEGORIES.map((cat) => (
           <span

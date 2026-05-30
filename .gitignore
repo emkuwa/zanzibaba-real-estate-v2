@@ -11,3 +11,4 @@ build/
 tsconfig.tsbuildinfo
 data/leads.json
 data/investors.json
+.next
