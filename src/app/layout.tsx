@@ -15,6 +15,8 @@ import {
 import { DevServiceWorkerCleanup } from "@/components/DevServiceWorkerCleanup";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { MicrosoftClarity } from "@/components/MicrosoftClarity";
+import { MetaPixel } from "@/components/seo/MetaPixel";
+import { LinkedInInsight } from "@/components/seo/LinkedInInsight";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 
@@ -42,6 +44,8 @@ export default function RootLayout({
         <DevServiceWorkerCleanup />
         <GoogleAnalytics />
         <MicrosoftClarity />
+        <MetaPixel />
+        <LinkedInInsight />
         <RealEstateJsonLd />
         <OrganizationJsonLd />
         <LocalBusinessJsonLd />

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { SITE } from "@/data/site";
+import { SITE, BOOK_CALL_URL } from "@/data/site";
 import {
   DEVELOPERS,
   DEVELOPER_PROJECTS,
@@ -258,6 +258,14 @@ export default async function DeveloperDetailPage({ params }: Props) {
               >
                 Get Personalized Recommendations
               </Link>
+              <a
+                href={BOOK_CALL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border-2 border-gold px-6 py-3 text-[14px] font-semibold text-gold transition hover:bg-gold hover:text-white"
+              >
+                Book a 30-min Call
+              </a>
               <Link
                 href="/opportunities"
                 className="rounded-full border border-white/20 px-6 py-3 text-[14px] font-semibold text-white/90 transition hover:border-gold/40 hover:text-gold"

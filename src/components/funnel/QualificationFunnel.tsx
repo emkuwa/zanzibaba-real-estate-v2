@@ -14,6 +14,7 @@ import { SITE, whatsappUrl } from "@/data/site";
 import { trackFormSubmit, trackWhatsAppClick } from "@/lib/gtag";
 import { Button } from "@/components/ui/Button";
 import { Section, SectionHeader } from "@/components/ui/Section";
+import { cn } from "@/lib/utils";
 
 type StepKey = FunnelStepKey | "contact" | "success";
 
@@ -122,6 +123,16 @@ export function QualificationFunnel() {
     } finally {
       setSubmitting(false);
     }
+  }
+
+  function buildWhatsappHandoff() {
+    const summary = Object.entries(answers)
+      .filter(([, v]) => v && v !== "")
+      .map(([k, v]) => `${k}: ${v}`)
+      .join(" · ");
+    return whatsappUrl(
+      `Hello Zanzibaba, I started the ${path === "rental" ? "rental" : "investment"} match form. ${summary ? `My answers so far: ${summary}.` : ""} Please send me the next steps.`
+    );
   }
 
   const successCopy =
@@ -261,13 +272,27 @@ export function QualificationFunnel() {
           </AnimatePresence>
 
           {step !== "success" && stepIndex > 0 && (
-            <button
-              type="button"
-              onClick={goBack}
-              className="mt-6 text-[15px] font-medium text-[#374151] hover:text-[#0B2A6B]"
-            >
-              ← Back
-            </button>
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+              <button
+                type="button"
+                onClick={goBack}
+                className="text-[15px] font-medium text-[#374151] hover:text-[#0B2A6B]"
+              >
+                ← Back
+              </button>
+              <a
+                href={buildWhatsappHandoff()}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("qualification_handoff")}
+                className={cn(
+                  "inline-flex items-center gap-1.5 text-[14px] font-semibold",
+                  "text-[#25D366] hover:underline"
+                )}
+              >
+                Skip — continue on WhatsApp →
+              </a>
+            </div>
           )}
         </div>
       </div>

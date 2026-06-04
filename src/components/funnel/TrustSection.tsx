@@ -5,24 +5,16 @@ import { VISUAL_SYSTEM } from "@/data/visual-system";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { LuxuryImage } from "@/components/ui/LuxuryImage";
 import { MotionReveal } from "@/components/ui/MotionReveal";
-import { StatsBar } from "@/components/funnel/StatsBar";
 import { TestimonialCarousel } from "@/components/funnel/TestimonialCarousel";
 
 export function TrustSection() {
   return (
     <>
-      <Section className="border-y border-border/60 bg-surface py-8 md:py-10">
-        <StatsBar />
-        <p className="mt-4 text-center text-[13px] text-muted md:mt-5">
-          {trustMetrics.disclaimer}
-        </p>
-      </Section>
-
       <Section id="trust">
         <SectionHeader
           eyebrow="Investor Confidence"
-          title="Trusted by international buyers worldwide"
-          description="Local expertise across Paje and Stone Town — international-standard advisory for diaspora investors and luxury buyers."
+          title="Licensed advisory. Real people. Local offices."
+          description="ZREB & BRELA registered, with permanent offices in Paje and Stone Town and a bilingual advisory team that closes with you — from first enquiry to keys."
         />
 
         <div className="grid gap-4 lg:grid-cols-2 lg:gap-6">
@@ -78,7 +70,42 @@ export function TrustSection() {
           </MotionReveal>
         </div>
 
-        <div className="mt-6 md:mt-8">
+        <div className="mt-10 md:mt-14">
+          <h3 className="mb-2 text-center font-serif text-[1.375rem] font-semibold text-navy md:mb-3 md:text-2xl">
+            Meet your advisory team
+          </h3>
+          <p className="mx-auto mb-6 max-w-2xl text-center text-[14px] text-muted md:mb-8">
+            Real advisors, on the ground in Zanzibar — speaking your language.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+            {trustMetrics.team.map((member) => (
+              <article
+                key={member.id}
+                className="luxury-card flex items-start gap-4 p-5"
+              >
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-navy to-navy-deep text-base font-semibold text-white shadow-md ring-2 ring-gold/30">
+                  {member.initials}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="font-serif text-[1.125rem] font-semibold leading-snug text-navy-heading">
+                    {member.name}
+                  </p>
+                  <p className="text-[13px] font-semibold text-gold">
+                    {member.role}
+                  </p>
+                  <p className="mt-1.5 text-[13px] leading-relaxed text-muted">
+                    {member.specialty}
+                  </p>
+                  <p className="mt-2 text-[12px] font-medium text-navy-heading">
+                    Speaks: {member.languages}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-10 md:mt-14">
           <h3 className="mb-4 text-center font-serif text-[1.375rem] font-semibold text-navy md:mb-5 md:text-2xl">
             What our clients say
           </h3>

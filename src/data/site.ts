@@ -103,3 +103,28 @@ export function whatsappUrl(message?: string): string {
   const text = encodeURIComponent(message ?? WHATSAPP_MESSAGE);
   return `https://wa.me/${SITE.whatsapp}?text=${text}`;
 }
+
+export const BOOK_CALL_URL =
+  process.env.NEXT_PUBLIC_BOOK_CALL_URL || "https://cal.com/zanzibaba/investor-call";
+
+export const TARGET_COUNTRIES = [
+  { code: "GB", label: "United Kingdom" },
+  { code: "US", label: "United States" },
+  { code: "CA", label: "Canada" },
+  { code: "AE", label: "United Arab Emirates" },
+  { code: "ZA", label: "South Africa" },
+  { code: "DE", label: "Germany" },
+  { code: "FR", label: "France" },
+  { code: "NL", label: "Netherlands" },
+  { code: "IT", label: "Italy" },
+  { code: "OTHER", label: "Other" },
+] as const;
+
+export const BUDGET_TIERS = [
+  "Under $150k",
+  "$150k – $350k",
+  "$350k – $750k",
+  "$750k – $1.5M",
+  "$1.5M+",
+  "Researching",
+] as const;

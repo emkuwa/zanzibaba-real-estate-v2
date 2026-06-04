@@ -201,10 +201,10 @@ export default function EcosystemPage() {
       <section className="mb-16 rounded-luxury-lg bg-navy-deep px-6 py-10 text-white sm:px-8 md:px-10 md:py-12">
         <div className="mb-8 text-center">
           <p className="text-[13px] font-semibold uppercase tracking-[0.18em] text-gold">
-            Why We're Different
+            Why We&apos;re Different
           </p>
           <h2 className="mt-2 font-serif text-2xl font-semibold md:text-3xl">
-            Investing in Zanzibar Shouldn't Feel Like Navigating a Maze
+            Investing in Zanzibar Shouldn&apos;t Feel Like Navigating a Maze
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-white/70">
             Most investors piece together information from brokers, blogs, and WhatsApp groups.
@@ -262,7 +262,7 @@ export default function EcosystemPage() {
             Ready to Start Your Journey?
           </h2>
           <p className="mt-3 text-[15px] leading-relaxed text-body">
-            Tell your concierge what you're looking for — and let the ecosystem do the rest.
+            Tell your concierge what you&apos;re looking for — and let the ecosystem do the rest.
             No commitment, no pressure. Just expert guidance.
           </p>
           <div className="mt-7 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">

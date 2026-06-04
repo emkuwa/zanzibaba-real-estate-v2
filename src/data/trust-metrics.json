@@ -1,33 +1,58 @@
 {
-  "disclaimer": "Indicative figures for planning; not audited financials",
-  "metrics": [
+  "disclaimer": null,
+  "signals": [
     {
-      "id": "properties",
-      "value": "500",
-      "suffix": "+",
-      "label": "Properties Sold",
+      "id": "licence",
+      "label": "ZREB & BRELA Licensed",
+      "detail": "Reg. ZREB/RES/2018/0042",
+      "icon": "shield"
+    },
+    {
+      "id": "office-paje",
+      "label": "Paje East Coast Office",
+      "detail": "Open Mon–Sat, 9:00–18:00 EAT",
       "icon": "building"
     },
     {
-      "id": "investors",
-      "value": "1000",
-      "suffix": "+",
-      "label": "International Investors",
+      "id": "office-stone",
+      "label": "Stone Town Head Office",
+      "detail": "Mlandege, Zanzibar",
+      "icon": "building"
+    },
+    {
+      "id": "team",
+      "label": "Bilingual Advisory Team",
+      "detail": "English · Arabic · Swahili · French · German",
       "icon": "globe"
+    }
+  ],
+  "team": [
+    {
+      "id": "lead-advisor",
+      "name": "Mahmoud M.",
+      "role": "Head of Investment Advisory",
+      "languages": "English · Arabic · Swahili",
+      "specialty": "Foreign ownership structures, off-plan, ROI modelling",
+      "initials": "MM",
+      "linkedin": "#"
     },
     {
-      "id": "years",
-      "value": "12",
-      "suffix": "+",
-      "label": "Years Experience",
-      "icon": "award"
+      "id": "concierge",
+      "name": "Sofia K.",
+      "role": "Investor Concierge Lead",
+      "languages": "English · French · German",
+      "specialty": "HNW onboarding, due diligence, site visits",
+      "initials": "SK",
+      "linkedin": "#"
     },
     {
-      "id": "satisfaction",
-      "value": "95",
-      "suffix": "%",
-      "label": "Client Satisfaction",
-      "icon": "heart"
+      "id": "research",
+      "name": "David O.",
+      "role": "Market Research & Intelligence",
+      "languages": "English · Swahili",
+      "specialty": "Market reports, area growth, developer vetting",
+      "initials": "DO",
+      "linkedin": "#"
     }
   ]
 }

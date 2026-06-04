@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { SITE } from "@/data/site";
+import { SITE, BOOK_CALL_URL } from "@/data/site";
 import { OPPORTUNITIES } from "@/ecosystem/data/opportunities";
 import { getDeveloperById } from "@/ecosystem/data/developers";
 import { opportunityImagePath } from "@/lib/ecosystem/utils";
@@ -243,6 +243,14 @@ export default async function OpportunityDetailPage({ params }: Props) {
                 >
                   Enquire About This Property
                 </Link>
+                <a
+                  href={BOOK_CALL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 block rounded-full border-2 border-gold py-2.5 text-center text-[13px] font-semibold text-gold transition hover:bg-gold hover:text-white"
+                >
+                  Book a 30-min Call
+                </a>
                 <p className="mt-2 text-center text-[12px] text-muted">
                   Our advisory team will respond within 24 hours
                 </p>

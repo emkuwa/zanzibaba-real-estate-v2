@@ -195,11 +195,9 @@ const RENTAL_STEP_KEYS: FunnelStepKey[] = [
 
 const BUY_STEP_KEYS: FunnelStepKey[] = [
   "intent",
-  "buyingFor",
   "propertyType",
   "area",
   "budget",
-  "prefer",
   "timeline",
 ];
 
