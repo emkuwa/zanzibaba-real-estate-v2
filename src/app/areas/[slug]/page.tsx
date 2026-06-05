@@ -13,6 +13,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { LuxuryImage } from "@/components/ui/LuxuryImage";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import { trackCtaClick, trackWhatsAppClick } from "@/lib/gtag";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -620,6 +621,7 @@ export default async function AreaPage({ params }: Props) {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick('area_founder_whatsapp')}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-[14px] font-semibold text-white transition hover:bg-[#1ebe57]"
               >
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -632,6 +634,7 @@ export default async function AreaPage({ params }: Props) {
                 href={BOOK_CALL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackCtaClick('book_consultation', 'area_founder')}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-5 py-2.5 text-[14px] font-semibold text-white transition hover:bg-gold-light"
               >
                 Book Consultation
@@ -641,6 +644,7 @@ export default async function AreaPage({ params }: Props) {
                   href={founder.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackCtaClick('founder_linkedin', 'area_founder')}
                   className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy-heading px-5 py-2.5 text-[14px] font-semibold text-navy-heading transition hover:bg-navy-heading hover:text-white"
                 >
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -665,6 +669,7 @@ export default async function AreaPage({ params }: Props) {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick('area_bottom_whatsapp_us')}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3 text-[14px] font-semibold text-white transition hover:bg-[#1ebe57]"
               >
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -675,16 +680,18 @@ export default async function AreaPage({ params }: Props) {
               </a>
               <Link
                 href="/#qualify"
+                onClick={() => trackCtaClick('get_brief', 'area_bottom')}
                 className="rounded-full bg-gold px-7 py-3 text-[14px] font-semibold text-white transition hover:bg-gold-light"
               >
                 Get {area.name} brief
               </Link>
-              <a
-                href={BOOK_CALL_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border-2 border-gold px-7 py-3 text-[14px] font-semibold text-gold transition hover:bg-gold hover:text-white"
-              >
+                <a
+                  href={BOOK_CALL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackCtaClick('book_call', 'area_bottom')}
+                  className="rounded-full border-2 border-gold px-7 py-3 text-[14px] font-semibold text-gold transition hover:bg-gold hover:text-white"
+                >
                 Book a 30-min call
               </a>
             </div>
