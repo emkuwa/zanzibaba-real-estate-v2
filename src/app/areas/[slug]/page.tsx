@@ -13,7 +13,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { LuxuryImage } from "@/components/ui/LuxuryImage";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
-import { trackCtaClick, trackWhatsAppClick } from "@/lib/gtag";
+import { TrackedAnchor, TrackedLink } from "@/components/ui/TrackedLink";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -617,11 +617,12 @@ export default async function AreaPage({ params }: Props) {
               </div>
             </div>
             <div className="mt-5 flex flex-wrap items-center gap-3">
-              <a
+              <TrackedAnchor
+                event="area_founder_whatsapp"
+                category="whatsapp"
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick('area_founder_whatsapp')}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-[14px] font-semibold text-white transition hover:bg-[#1ebe57]"
               >
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -629,29 +630,31 @@ export default async function AreaPage({ params }: Props) {
                   <path d="M12.004 1.998c-5.514 0-10 4.486-10 10 0 1.878.52 3.633 1.412 5.132l-1.404 4.686 4.87-1.402a9.95 9.95 0 0 0 5.122 1.584c5.514 0 10-4.486 10-10s-4.486-10-10-10zm0 18.367a8.35 8.35 0 0 1-4.272-1.18l-.306-.183-3.003.866.877-2.936-.2-.321a8.353 8.353 0 0 1-1.294-4.596c0-4.63 3.767-8.397 8.397-8.397s8.397 3.767 8.397 8.397-3.767 8.397-8.397 8.397z" />
                 </svg>
                 WhatsApp Emmanuel
-              </a>
-              <a
+              </TrackedAnchor>
+              <TrackedAnchor
+                event="book_consultation"
+                category="area_founder"
                 href={BOOK_CALL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackCtaClick('book_consultation', 'area_founder')}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-5 py-2.5 text-[14px] font-semibold text-white transition hover:bg-gold-light"
               >
                 Book Consultation
-              </a>
+              </TrackedAnchor>
               {founder.linkedin && (
-                <a
+                <TrackedAnchor
+                  event="founder_linkedin"
+                  category="area_founder"
                   href={founder.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackCtaClick('founder_linkedin', 'area_founder')}
                   className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy-heading px-5 py-2.5 text-[14px] font-semibold text-navy-heading transition hover:bg-navy-heading hover:text-white"
                 >
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.062 2.062 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                   </svg>
                   LinkedIn
-                </a>
+                </TrackedAnchor>
               )}
             </div>
           </section>
@@ -665,11 +668,12 @@ export default async function AreaPage({ params }: Props) {
               within 24 hours.
             </p>
             <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-              <a
+<TrackedAnchor
+                event="area_bottom_whatsapp_us"
+                category="whatsapp"
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick('area_bottom_whatsapp_us')}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3 text-[14px] font-semibold text-white transition hover:bg-[#1ebe57]"
               >
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -677,23 +681,25 @@ export default async function AreaPage({ params }: Props) {
                   <path d="M12.004 1.998c-5.514 0-10 4.486-10 10 0 1.878.52 3.633 1.412 5.132l-1.404 4.686 4.87-1.402a9.95 9.95 0 0 0 5.122 1.584c5.514 0 10-4.486 10-10s-4.486-10-10-10zm0 18.367a8.35 8.35 0 0 1-4.272-1.18l-.306-.183-3.003.866.877-2.936-.2-.321a8.353 8.353 0 0 1-1.294-4.596c0-4.63 3.767-8.397 8.397-8.397s8.397 3.767 8.397 8.397-3.767 8.397-8.397 8.397z" />
                 </svg>
                 WhatsApp us
-              </a>
-              <Link
+              </TrackedAnchor>
+              <TrackedLink
+                event="get_brief"
+                category="area_bottom"
                 href="/#qualify"
-                onClick={() => trackCtaClick('get_brief', 'area_bottom')}
                 className="rounded-full bg-gold px-7 py-3 text-[14px] font-semibold text-white transition hover:bg-gold-light"
               >
                 Get {area.name} brief
-              </Link>
-                <a
-                  href={BOOK_CALL_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackCtaClick('book_call', 'area_bottom')}
-                  className="rounded-full border-2 border-gold px-7 py-3 text-[14px] font-semibold text-gold transition hover:bg-gold hover:text-white"
-                >
+              </TrackedLink>
+              <TrackedAnchor
+                event="book_consultation"
+                category="area_bottom"
+                href={BOOK_CALL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border-2 border-gold px-7 py-3 text-[14px] font-semibold text-gold transition hover:bg-gold hover:text-white"
+              >
                 Book a 30-min call
-              </a>
+              </TrackedAnchor>
             </div>
           </section>
         </div>
