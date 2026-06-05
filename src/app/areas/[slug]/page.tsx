@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { SITE, BOOK_CALL_URL } from "@/data/site";
+import { SITE, BOOK_CALL_URL, whatsappUrl } from "@/data/site";
 import { AREA_GUIDES, type AreaGuide } from "@/data/authority/area-guides";
 import { AREA_FAQS } from "@/data/authority/area-faqs";
 import { OPPORTUNITIES } from "@/ecosystem/data/opportunities";
 import { opportunityImagePath } from "@/lib/ecosystem/utils";
 import { ROI_HIGHLIGHTS } from "@/data/seo-content";
+import trustMetrics from "@/data/trust-metrics.json";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { LuxuryImage } from "@/components/ui/LuxuryImage";
@@ -181,6 +183,10 @@ export default async function AreaPage({ params }: Props) {
     (o) => o.area.toLowerCase() === area.name.toLowerCase()
   );
   const otherAreas = AREA_GUIDES.filter((a) => a.slug !== area.slug).slice(0, 6);
+  const founder = trustMetrics.founder;
+  const whatsappHref = whatsappUrl(
+    `Hello Emmanuel, I am interested in ${area.name} property in Zanzibar. Please send me investment information.`
+  );
 
   const placeSchema = buildPlaceSchema(area);
   const breadcrumbSchema = buildBreadcrumbSchema(area);
@@ -578,6 +584,74 @@ export default async function AreaPage({ params }: Props) {
             </div>
           </section>
 
+          <section className="mb-10">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-gold">
+              Meet the founder
+            </p>
+            <h2 className="mt-1 font-serif text-2xl font-semibold text-navy-heading md:text-3xl">
+              Speak directly with Emmanuel Mkuwa
+            </h2>
+            <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-body">
+              Founder-led advisory for {area.name} investors. Every enquiry is handled by the
+              person who built the business.
+            </p>
+            <div className="mt-6 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+              <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full ring-[3px] ring-gold/60 shadow-luxury sm:h-24 sm:w-24">
+                <Image
+                  src={founder.photo}
+                  alt={founder.name}
+                  fill
+                  sizes="96px"
+                  className="object-cover object-[center_30%]"
+                />
+              </div>
+              <div className="flex-1">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
+                  {founder.role}
+                </p>
+                <p className="mt-1 font-serif text-xl font-semibold text-navy-heading">
+                  {founder.name}
+                </p>
+                <p className="mt-1 text-[14px] leading-[1.7] text-body">{founder.bio}</p>
+              </div>
+            </div>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-[14px] font-semibold text-white transition hover:bg-[#1ebe57]"
+              >
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M17.472 14.382a.68.68 0 0 1-.33.22c-.27.09-.57.14-.86.14-.78 0-1.46-.3-2.05-.66-.96-.58-2.031-1.58-3.171-2.72-1.14-1.14-2.14-2.21-2.72-3.17-.36-.59-.66-1.27-.66-2.05 0-.29.05-.59.14-.86a.68.68 0 0 1 .22-.33c.15-.16.34-.24.54-.24h.74c.2 0 .4.09.51.25.27.4.65 1.12.89 1.68a.48.48 0 0 1-.07.49c-.12.16-.27.35-.42.51l-.28.28c.22.58.7 1.19 1.24 1.73s1.15 1.02 1.73 1.24l.28-.28c.16-.15.35-.3.51-.42a.48.48 0 0 1 .49-.07c.56.24 1.28.62 1.68.89.16.11.25.31.25.51v.74c0 .2-.08.39-.24.54z" />
+                  <path d="M12.004 1.998c-5.514 0-10 4.486-10 10 0 1.878.52 3.633 1.412 5.132l-1.404 4.686 4.87-1.402a9.95 9.95 0 0 0 5.122 1.584c5.514 0 10-4.486 10-10s-4.486-10-10-10zm0 18.367a8.35 8.35 0 0 1-4.272-1.18l-.306-.183-3.003.866.877-2.936-.2-.321a8.353 8.353 0 0 1-1.294-4.596c0-4.63 3.767-8.397 8.397-8.397s8.397 3.767 8.397 8.397-3.767 8.397-8.397 8.397z" />
+                </svg>
+                WhatsApp Emmanuel
+              </a>
+              <a
+                href={BOOK_CALL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-5 py-2.5 text-[14px] font-semibold text-white transition hover:bg-gold-light"
+              >
+                Book Consultation
+              </a>
+              {founder.linkedin && (
+                <a
+                  href={founder.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy-heading px-5 py-2.5 text-[14px] font-semibold text-navy-heading transition hover:bg-navy-heading hover:text-white"
+                >
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.062 2.062 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                  LinkedIn
+                </a>
+              )}
+            </div>
+          </section>
+
           <section className="rounded-luxury-lg bg-surface p-6 text-center md:p-8">
             <h2 className="font-serif text-2xl font-semibold text-navy-heading md:text-3xl">
               Ready to invest in {area.name}?
@@ -587,6 +661,18 @@ export default async function AreaPage({ params }: Props) {
               within 24 hours.
             </p>
             <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3 text-[14px] font-semibold text-white transition hover:bg-[#1ebe57]"
+              >
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M17.472 14.382a.68.68 0 0 1-.33.22c-.27.09-.57.14-.86.14-.78 0-1.46-.3-2.05-.66-.96-.58-2.031-1.58-3.171-2.72-1.14-1.14-2.14-2.21-2.72-3.17-.36-.59-.66-1.27-.66-2.05 0-.29.05-.59.14-.86a.68.68 0 0 1 .22-.33c.15-.16.34-.24.54-.24h.74c.2 0 .4.09.51.25.27.4.65 1.12.89 1.68a.48.48 0 0 1-.07.49c-.12.16-.27.35-.42.51l-.28.28c.22.58.7 1.19 1.24 1.73s1.15 1.02 1.73 1.24l.28-.28c.16-.15.35-.3.51-.42a.48.48 0 0 1 .49-.07c.56.24 1.28.62 1.68.89.16.11.25.31.25.51v.74c0 .2-.08.39-.24.54z" />
+                  <path d="M12.004 1.998c-5.514 0-10 4.486-10 10 0 1.878.52 3.633 1.412 5.132l-1.404 4.686 4.87-1.402a9.95 9.95 0 0 0 5.122 1.584c5.514 0 10-4.486 10-10s-4.486-10-10-10zm0 18.367a8.35 8.35 0 0 1-4.272-1.18l-.306-.183-3.003.866.877-2.936-.2-.321a8.353 8.353 0 0 1-1.294-4.596c0-4.63 3.767-8.397 8.397-8.397s8.397 3.767 8.397 8.397-3.767 8.397-8.397 8.397z" />
+                </svg>
+                WhatsApp us
+              </a>
               <Link
                 href="/#qualify"
                 className="rounded-full bg-gold px-7 py-3 text-[14px] font-semibold text-white transition hover:bg-gold-light"
