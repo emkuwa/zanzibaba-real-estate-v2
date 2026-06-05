@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const url = `${SITE.url}/developers/${dev.slug}`;
 
   return {
-    title: `${dev.name} — Verified Zanzibar Developer | Zanzibaba`,
+    title: `${dev.name} — Verified Zanzibar Developer`,
     description: dev.description,
     alternates: { canonical: url },
     keywords: [

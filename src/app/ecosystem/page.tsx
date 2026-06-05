@@ -6,12 +6,12 @@ import { SITE, whatsappUrl } from "@/data/site";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Zanzibar Investment Ecosystem — Your Complete Platform for Investing in Zanzibar",
+    title: "Zanzibar Investment Ecosystem Platform",
   description:
     "Discover, verify, and invest in Zanzibar real estate through a single platform. AI concierge, vetted developers, market intelligence, and dedicated support — built for international investors.",
   alternates: { canonical: `${SITE.url}/ecosystem` },
   openGraph: {
-    title: "Zanzibar Investment Ecosystem — Your Complete Platform for Investing in Zanzibar",
+  title: "Zanzibar Investment Ecosystem Platform",
     description:
       "From first discovery to property ownership — a unified ecosystem connecting international investors to Zanzibar's best real estate opportunities with AI concierge, developer partnerships, and market intelligence.",
   },

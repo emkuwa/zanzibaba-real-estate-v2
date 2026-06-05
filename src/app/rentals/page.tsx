@@ -7,12 +7,12 @@ import { RENTAL_EXPERIENCES } from "@/data/seo-content";
 import { EXPAT_NOMAD_HUB } from "@/data/authority";
 
 export const metadata: Metadata = {
-  title: "Zanzibar Rentals & Relocation — Luxury Villas, Expat & Nomad Stays",
+  title: "Zanzibar Rentals & Relocation",
   description:
     "Find premium Zanzibar rentals: luxury beachfront villas, long-term expat housing, digital nomad accommodation, and monthly stays. Personalised concierge matching for international renters.",
   alternates: { canonical: `${SITE.url}/rentals` },
   openGraph: {
-    title: "Zanzibar Rentals & Relocation — Luxury Beachfront Villas & Expat Housing",
+    title: "Zanzibar Rentals & Relocation",
     description:
       "Discover Zanzibar's finest rentals: luxury vacation villas, monthly beachfront stays, expat housing, and digital nomad accommodation. Personal concierge matching for international clients.",
   },

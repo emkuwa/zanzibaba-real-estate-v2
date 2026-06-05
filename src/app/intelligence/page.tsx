@@ -6,12 +6,12 @@ import { EcosystemPageShell } from "@/components/ecosystem/EcosystemPageShell";
 import { INTELLIGENCE_FEED, INTELLIGENCE_CATEGORIES } from "@/ecosystem/data/intelligence";
 
 export const metadata: Metadata = {
-  title: "Zanzibar Intelligence Hub — Market Reports & Investment News",
+  title: "Zanzibar Intelligence Hub",
   description:
     "Stay informed with Zanzibar investment intelligence: market reports, infrastructure project updates, area growth insights, and investment news for international real estate investors.",
   alternates: { canonical: `${SITE.url}/intelligence` },
   openGraph: {
-    title: "Zanzibar Intelligence Hub — Market Reports for Property Investors",
+    title: "Zanzibar Intelligence Hub",
     description:
       "Access comprehensive Zanzibar investment intelligence: market trends, infrastructure developments, area growth analysis, and property investment news curated for international buyers.",
   },

@@ -5,12 +5,12 @@ import { SITE } from "@/data/site";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Zanzibar Investment Opportunities — Luxury Villas, Land & Hotels",
+  title: "Zanzibar Investment Opportunities",
   description:
     "Discover curated Zanzibar investment opportunities: beachfront villas, off-plan developments, hospitality assets, and commercial property. Tagged by ROI potential, Airbnb readiness, and foreign buyer suitability.",
   alternates: { canonical: `${SITE.url}/opportunities` },
   openGraph: {
-    title: "Zanzibar Investment Opportunities — Browse Luxury Property & Land",
+    title: "Zanzibar Investment Opportunities",
     description:
       "Browse verified Zanzibar real estate investment opportunities: luxury beachfront villas, off-plan developments, hotel assets, land banking, and commercial property for international investors.",
   },

@@ -11,12 +11,12 @@ const pageSlug = "zanzibar-residency-guide";
 const canonicalUrl = `${SITE.url}/${pageSlug}`;
 
 export const metadata: Metadata = {
-  title: "Living in Zanzibar — Residency Guide for Expats & International Residents | Zanzibaba",
+  title: "Zanzibar Residency Guide — Living as an Expat",
   description:
     "Complete Zanzibar residency guide covering cost of living, banking, healthcare, schools, internet, expat lifestyle, and relocation essentials for international residents, digital nomads, and retirees.",
   alternates: { canonical: canonicalUrl },
   openGraph: {
-    title: "Living in Zanzibar — Residency Guide for Expats & International Residents",
+    title: "Zanzibar Residency Guide — Living as an Expat",
     description:
       "Everything you need to know about living in Zanzibar as an expat: cost of living, banking, healthcare, education, internet, and lifestyle for international residents.",
   },
@@ -329,6 +329,15 @@ export default function ZanzibarResidencyGuidePage() {
               <p className="mt-3 text-[15px] leading-relaxed text-body">
                 {section.description}
               </p>
+              {section.id === "living" && (
+                <p className="mt-4 text-[15px] leading-relaxed text-body">
+                  Buying property as a foreigner? See our{" "}
+                  <Link href="/foreign-ownership-guide" className="font-medium text-gold hover:underline">
+                    Foreign Ownership Guide
+                  </Link>{" "}
+                  for legal structures, due diligence, and the acquisition process.
+                </p>
+              )}
               {section.details && (
                 <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                   {section.details.map((d) => (

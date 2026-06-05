@@ -6,12 +6,12 @@ import { Footer } from "@/components/layout/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Contact a Zanzibar Investment Advisor | Zanzibaba",
+  title: "Contact a Zanzibar Investment Advisor",
   description:
     "Book a 30-min video call with a senior Zanzibar investment advisor, or reach us on WhatsApp. Bilingual advisory for UK, US, EU, UAE, SA, and Canadian investors.",
   alternates: { canonical: `${SITE.url}/contact` },
   openGraph: {
-    title: "Contact a Zanzibar Investment Advisor | Zanzibaba",
+    title: "Contact a Zanzibar Investment Advisor",
     description:
       "Speak directly with a Zanzibar investment specialist. 30-min video call, multilingual, no commitment.",
   },

@@ -11,12 +11,12 @@ const pageSlug = "foreign-ownership-guide";
 const canonicalUrl = `${SITE.url}/${pageSlug}`;
 
 export const metadata: Metadata = {
-  title: "Foreign Ownership Guide — Buy Property in Zanzibar as a Foreigner | Zanzibaba",
+  title: "Foreign Ownership Guide — Buy Property in Zanzibar",
   description:
     "Complete guide to foreign property ownership in Zanzibar: acquisition process, due diligence, ownership structures, FAQs, and advisory support for international buyers from the UK, US, EU, UAE, Canada, and South Africa.",
   alternates: { canonical: canonicalUrl },
   openGraph: {
-    title: "Foreign Ownership Guide — Buy Property in Zanzibar as a Foreigner",
+    title: "Foreign Ownership Guide — Buy Property in Zanzibar",
     description:
       "Step-by-step guide to foreign property ownership in Zanzibar: legal frameworks, due diligence, ownership structures, and advisory support for international investors.",
   },
@@ -281,6 +281,13 @@ export default function ForeignOwnershipGuidePage() {
               a heritage property in Stone Town, or a hospitality asset in Matemwe — the same core
               framework applies. Each transaction is structured to be compliant, transparent, and
               aligned with your investment goals.
+            </p>
+            <p className="mt-4 text-[15px] leading-relaxed text-body">
+              Planning to relocate? See our{" "}
+              <Link href="/zanzibar-residency-guide" className="font-medium text-gold hover:underline">
+                Zanzibar Residency Guide
+              </Link>{" "}
+              for cost of living, banking, healthcare, schools, and expat lifestyle.
             </p>
             <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {[

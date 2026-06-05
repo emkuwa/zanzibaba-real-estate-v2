@@ -10,12 +10,12 @@ import {
 import { opportunityImagePath } from "@/lib/ecosystem/utils";
 
 export const metadata: Metadata = {
-  title: "Zanzibar Developer Portal — Verified Property Projects & ROI Data",
+  title: "Zanzibar Developer Portal",
   description:
     "Browse verified Zanzibar real estate developers, off-plan investment projects, ROI estimates, project galleries, and investor fit matching. Find your next Zanzibar property development opportunity.",
   alternates: { canonical: `${SITE.url}/developers` },
   openGraph: {
-    title: "Zanzibar Developer Portal — Verified Developers & Off-Plan Projects",
+    title: "Zanzibar Developer Portal",
     description:
       "Access verified Zanzibar property developers, off-plan investment projects with ROI data, project galleries, and location intelligence for informed real estate investment decisions.",
   },

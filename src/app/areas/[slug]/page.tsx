@@ -17,14 +17,14 @@ interface Props {
 }
 
 const SLUG_TITLES: Record<string, string> = {
-  paje: "Paje Property for Sale & Investment | Beachfront Real Estate Zanzibar",
-  nungwi: "Nungwi Luxury Villas & Beachfront Property for Sale | Zanzibar",
-  kendwa: "Kendwa Beach Property for Sale | Zanzibar Real Estate Investment",
-  jambiani: "Jambiani Land & Villas for Sale | Zanzibar Investment Property",
-  matemwe: "Matemwe Boutique Hotels & Villas | Zanzibar Real Estate",
-  kiwengwa: "Kiwengwa Resort Property & Holiday Homes | Invest in Zanzibar",
-  "stone-town": "Stone Town Heritage Apartments & Property for Sale | Zanzibar",
-  fumba: "Fumba Off-Plan Villas & Marina Residences | Zanzibar Investment",
+  paje: "Paje Property for Sale & Investment",
+  nungwi: "Nungwi Luxury Villas & Beachfront Property",
+  kendwa: "Kendwa Beach Property & Real Estate",
+  jambiani: "Jambiani Land & Villas for Sale",
+  matemwe: "Matemwe Boutique Hotels & Villas",
+  kiwengwa: "Kiwengwa Resort Property & Holiday Homes",
+  "stone-town": "Stone Town Heritage Property for Sale",
+  fumba: "Fumba Off-Plan Villas & Marina Residences",
 };
 
 const SLUG_DESCRIPTIONS: Record<string, string> = {
@@ -534,6 +534,47 @@ export default async function AreaPage({ params }: Props) {
                   </span>
                 </Link>
               ))}
+            </div>
+          </section>
+
+          <section className="mb-10 rounded-luxury-lg border border-border bg-surface p-6 md:p-8">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-gold">
+              Investor Resources
+            </p>
+            <h2 className="mt-1 font-serif text-2xl font-semibold text-navy-heading md:text-3xl">
+              Essential guides for international buyers
+            </h2>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              <Link
+                href="/foreign-ownership-guide"
+                className="luxury-card group block p-4 transition hover:shadow-premium"
+              >
+                <p className="font-serif text-base font-semibold text-navy-heading">
+                  Foreign Ownership Guide
+                </p>
+                <p className="mt-1 text-[13px] leading-snug text-muted">
+                  Everything foreigners need to know about buying property in Zanzibar — legal
+                  structures, due diligence, and the acquisition process.
+                </p>
+                <span className="mt-3 inline-block text-[13px] font-semibold text-gold group-hover:underline">
+                  Read the guide →
+                </span>
+              </Link>
+              <Link
+                href="/zanzibar-residency-guide"
+                className="luxury-card group block p-4 transition hover:shadow-premium"
+              >
+                <p className="font-serif text-base font-semibold text-navy-heading">
+                  Zanzibar Residency Guide
+                </p>
+                <p className="mt-1 text-[13px] leading-snug text-muted">
+                  Cost of living, banking, healthcare, schools, internet, and expat lifestyle —
+                  everything for international residents.
+                </p>
+                <span className="mt-3 inline-block text-[13px] font-semibold text-gold group-hover:underline">
+                  Read the guide →
+                </span>
+              </Link>
             </div>
           </section>
 

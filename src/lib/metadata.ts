@@ -3,14 +3,14 @@ import { SITE, SEO_KEYWORDS } from "@/data/site";
 import { BRAND_LOGO } from "@/data/brand";
 
 const defaultTitle =
-  "Zanzibar Investment Ecosystem | Real Estate, Intelligence & AI Concierge | Zanzibaba";
+  "Zanzibar Investment Ecosystem | Zanzibaba";
 const defaultDescription = SITE.tagline;
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
     default: defaultTitle,
-    template: "%s | Zanzibaba — Zanzibar Investment Ecosystem",
+    template: "%s | Zanzibaba",
   },
   description: defaultDescription,
   keywords: [...SEO_KEYWORDS],

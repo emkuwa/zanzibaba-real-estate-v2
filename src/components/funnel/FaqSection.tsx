@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ALL_FAQ_ITEMS } from "@/data/authority";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -80,6 +81,14 @@ export function FaqSection() {
         >
           Talk to Zanzibar Concierge
         </Button>
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[14px] text-white/70">
+          <Link href="/foreign-ownership-guide" className="font-medium text-gold hover:underline">
+            Foreign ownership guide →
+          </Link>
+          <Link href="/zanzibar-residency-guide" className="font-medium text-gold hover:underline">
+            Expat residency guide →
+          </Link>
+        </div>
       </div>
     </Section>
   );

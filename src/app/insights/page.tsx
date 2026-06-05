@@ -5,12 +5,12 @@ import { ARTICLES, ARTICLE_CATEGORIES } from "@/data/articles";
 import { SITE } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Zanzibar Insights & Guides — Investment, Tourism & Relocation",
+  title: "Zanzibar Insights & Guides",
   description:
     "Expert Zanzibar insights and guides: real estate investment tips, tourism guides, area reports, market trends, foreign ownership information, and relocation advice for international audiences.",
   alternates: { canonical: `${SITE.url}/insights` },
   openGraph: {
-    title: "Zanzibar Insights — Expert Guides for Investors, Tourists & Expats",
+    title: "Zanzibar Insights & Guides",
     description:
       "Comprehensive Zanzibar guides covering real estate investment, tourism destinations, expat relocation, digital nomad living, and market intelligence from the Zanzibaba advisory team.",
   },
