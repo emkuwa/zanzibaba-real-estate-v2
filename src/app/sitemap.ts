@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/insights`, priority: 0.88, changeFreq: "weekly" as const },
     { url: `${base}/contact`, priority: 0.7, changeFreq: "monthly" as const },
     { url: `${base}/foreign-ownership-guide`, priority: 0.9, changeFreq: "monthly" as const },
+    { url: `${base}/zanzibar-residency-guide`, priority: 0.9, changeFreq: "monthly" as const },
   ];
 
   const areaPages = AREA_GUIDES.map((area) => ({
