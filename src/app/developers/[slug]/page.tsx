@@ -170,7 +170,7 @@ export default async function DeveloperDetailPage({ params }: Props) {
                     key={proj.id}
                     className="overflow-hidden rounded-luxury border border-border/70"
                   >
-                    <div className="relative h-48">
+                    <div className="relative h-52">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={opportunityImagePath(proj.gallery[0] ?? "villa-luxury")}

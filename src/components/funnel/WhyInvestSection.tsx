@@ -34,7 +34,7 @@ export function WhyInvestSection() {
         {WHY_INVEST.pillars.map((pillar, i) => (
           <MotionReveal key={pillar.title} delay={i * 0.05}>
             <article className="luxury-card group overflow-hidden p-0 hover:shadow-premium">
-              <div className="relative h-36 overflow-hidden sm:h-40">
+              <div className="relative h-44 overflow-hidden sm:h-52">
                 <LuxuryImage
                   asset={pillar.image}
                   overlay="minimal"

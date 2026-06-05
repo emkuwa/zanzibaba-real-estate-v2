@@ -14,6 +14,15 @@ const nextConfig: NextConfig = {
     unoptimized: process.env.NODE_ENV === "development",
   },
   poweredByHeader: false,
+  async redirects() {
+    return [
+      {
+        source: "/for/uk",
+        destination: "/for/uk-investors",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

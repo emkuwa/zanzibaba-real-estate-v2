@@ -4,6 +4,7 @@ import { OPPORTUNITIES } from "@/ecosystem/data/opportunities";
 import { DEVELOPERS } from "@/ecosystem/data/developers";
 import { ARTICLES } from "@/data/articles";
 import { AREA_GUIDES } from "@/data/authority/area-guides";
+import { COUNTRY_PAGES } from "@/data/country-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.url;
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/rentals`, priority: 0.91, changeFreq: "weekly" as const },
     { url: `${base}/insights`, priority: 0.88, changeFreq: "weekly" as const },
     { url: `${base}/contact`, priority: 0.7, changeFreq: "monthly" as const },
+    { url: `${base}/foreign-ownership-guide`, priority: 0.9, changeFreq: "monthly" as const },
   ];
 
   const areaPages = AREA_GUIDES.map((area) => ({
@@ -25,6 +27,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.93,
+  }));
+
+  const countryPages = Object.values(COUNTRY_PAGES).map((c) => ({
+    url: `${base}/for/${c.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
   }));
 
   const anchors = [
@@ -74,6 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority,
     })),
     ...areaPages,
+    ...countryPages,
     ...anchors.map((path) => ({
       url: `${base}/${path}`,
       lastModified: now,

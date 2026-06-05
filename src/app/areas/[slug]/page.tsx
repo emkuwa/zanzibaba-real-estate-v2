@@ -5,6 +5,7 @@ import { SITE, BOOK_CALL_URL } from "@/data/site";
 import { AREA_GUIDES, type AreaGuide } from "@/data/authority/area-guides";
 import { AREA_FAQS } from "@/data/authority/area-faqs";
 import { OPPORTUNITIES } from "@/ecosystem/data/opportunities";
+import { opportunityImagePath } from "@/lib/ecosystem/utils";
 import { ROI_HIGHLIGHTS } from "@/data/seo-content";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -360,8 +361,8 @@ export default async function AreaPage({ params }: Props) {
                       <div className="relative h-40 overflow-hidden">
                         <LuxuryImage
                           asset={{
-                            src: `/images/opportunities/${opp.imageKey}.jpg`,
-                            fallback: `/images/opportunities/${opp.imageKey}.jpg`,
+                            src: opportunityImagePath(opp.imageKey),
+                            fallback: opportunityImagePath(opp.imageKey),
                             alt: opp.title,
                           }}
                           overlay="minimal"
@@ -448,7 +449,7 @@ export default async function AreaPage({ params }: Props) {
             </p>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {[
-                "ZREB & BRELA registered advisory",
+                "Licensed advisory team with local expertise",
                 "Bilingual deal team (English · Arabic · Swahili · French · German)",
                 "Title verification and due diligence coordination",
                 "On-the-ground presence in Paje and Stone Town",

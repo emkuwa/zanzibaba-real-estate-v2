@@ -36,7 +36,7 @@ const FEATURED_OPPORTUNITIES = [
     id: "commercial",
     title: "Commercial & Mixed-Use",
     description: "Institutional-grade commercial assets in growth corridors with strong rental demand.",
-    image: VISUAL_SYSTEM.propertyTypes.commercial,
+    image: VISUAL_SYSTEM.areas["stone-town"],
     tag: "Institutional",
     cta: "Commercial Portfolio",
   },
@@ -58,7 +58,7 @@ export function FeaturedOpportunitiesSection() {
             key={opportunity.id}
             className="group relative overflow-hidden rounded-luxury-lg border border-border bg-white shadow-sm transition-all hover:shadow-premium hover:-translate-y-1"
           >
-            <div className="relative h-48 overflow-hidden">
+            <div className="relative h-52 overflow-hidden sm:h-56">
               <LuxuryImage
                 asset={opportunity.image}
                 overlay="minimal"

@@ -2033,12 +2033,11 @@ Arbitrage can work in high-demand areas like Paje and Nungwi with careful financ
 
 ## Registration Process
 
-1. Reserve company name with BRELA.
-2. Prepare memorandum and articles of association.
-3. Register with the Companies Registry.
-4. Obtain tax identification number (TIN).
-5. Register for VAT if applicable.
-6. Open a corporate bank account.
+1. Prepare memorandum and articles of association.
+2. Register with the Companies Registry.
+3. Obtain tax identification number (TIN).
+4. Register for VAT if applicable.
+5. Open a corporate bank account.
 
 ## Key Considerations
 

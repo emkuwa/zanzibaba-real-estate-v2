@@ -22,7 +22,7 @@ export function InvestmentAreasSection() {
             id={area.slug}
             className="luxury-card-dark group overflow-hidden p-0 transition hover:border-gold/25 hover:shadow-premium"
           >
-            <div className="relative h-36 overflow-hidden sm:h-40">
+            <div className="relative h-40 overflow-hidden sm:h-52">
               <LuxuryImage
                 asset={area.image}
                 overlay="card"

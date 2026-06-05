@@ -13,7 +13,6 @@ import { StickyWhatsApp } from "@/components/conversion/StickyWhatsApp";
 import { ExitIntentPopup } from "@/components/conversion/ExitIntentPopup";
 import { LeadMagnetPopup } from "@/components/conversion/LeadMagnetPopup";
 import { AIChatbot } from "@/components/chat/AIChatbot";
-import { EcosystemModulesSection } from "./ecosystem/EcosystemModulesSection";
 import { FeaturedOpportunitiesSection } from "./funnel/FeaturedOpportunitiesSection";
 
 export default function HomePageClient() {
@@ -36,10 +35,7 @@ export default function HomePageClient() {
         {/* 5. Why Invest in Zanzibar */}
         <WhyInvestSection />
         
-        {/* 6. Platform Ecosystem */}
-        <EcosystemModulesSection />
-        
-        {/* 7. Investor Concierge */}
+        {/* 6. Investor Concierge */}
         <QualificationFunnel />
         
         {/* 8. Testimonials */}

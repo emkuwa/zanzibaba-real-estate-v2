@@ -49,7 +49,7 @@ export const DEVELOPER_PROJECTS: readonly DeveloperProject[] = [
     roiEstimate: "12–15% gross Airbnb*",
     priceFrom: "$380,000",
     investorFit: ["Airbnb investors", "Holiday home buyers", "Diaspora"],
-    gallery: ["villa-luxury", "holiday-home-luxury", "airbnb-investment"],
+    gallery: ["villa-luxury", "paje", "jambiani"],
     tags: ["Luxury", "ROI", "Airbnb", "Beachfront", "Foreign Buyer"],
     description:
       "Twelve beachfront and near-beach villas with private pools, title coordination, and optional rental management.",
@@ -67,7 +67,7 @@ export const DEVELOPER_PROJECTS: readonly DeveloperProject[] = [
     roiEstimate: "8–12% hospitality yield*",
     priceFrom: "$650,000",
     investorFit: ["Hotel investors", "HNW buyers", "Institutional"],
-    gallery: ["boutique-hotel", "villa-luxury", "premium-tourism"],
+    gallery: ["boutique-hotel", "nungwi", "kendwa"],
     tags: ["Luxury", "ROI", "Hospitality", "Foreign Buyer"],
     description:
       "Branded resort residences with hotel management agreement, spa, and north-coast beach access.",
@@ -85,7 +85,7 @@ export const DEVELOPER_PROJECTS: readonly DeveloperProject[] = [
     roiEstimate: "Capital growth focus*",
     priceFrom: "$195,000",
     investorFit: ["Off-plan investors", "Expats", "Entrepreneurs"],
-    gallery: ["off-plan-investment", "apartment-luxury", "commercial-luxury"],
+    gallery: ["fumba", "apartment-luxury", "commercial-luxury"],
     tags: ["Off-Plan", "ROI", "Foreign Buyer", "Commercial"],
     description:
       "Marina-adjacent apartments and commercial units in a master-planned peninsula community.",

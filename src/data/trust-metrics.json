@@ -2,12 +2,6 @@
   "disclaimer": null,
   "signals": [
     {
-      "id": "licence",
-      "label": "ZREB & BRELA Licensed",
-      "detail": "Reg. ZREB/RES/2018/0042",
-      "icon": "shield"
-    },
-    {
       "id": "office-paje",
       "label": "Paje East Coast Office",
       "detail": "Open Mon–Sat, 9:00–18:00 EAT",
@@ -21,38 +15,19 @@
     },
     {
       "id": "team",
-      "label": "Bilingual Advisory Team",
-      "detail": "English · Arabic · Swahili · French · German",
+      "label": "Founder-Led Advisory",
+      "detail": "Direct access to leadership",
       "icon": "globe"
     }
   ],
-  "team": [
-    {
-      "id": "lead-advisor",
-      "name": "Mahmoud M.",
-      "role": "Head of Investment Advisory",
-      "languages": "English · Arabic · Swahili",
-      "specialty": "Foreign ownership structures, off-plan, ROI modelling",
-      "initials": "MM",
-      "linkedin": "#"
-    },
-    {
-      "id": "concierge",
-      "name": "Sofia K.",
-      "role": "Investor Concierge Lead",
-      "languages": "English · French · German",
-      "specialty": "HNW onboarding, due diligence, site visits",
-      "initials": "SK",
-      "linkedin": "#"
-    },
-    {
-      "id": "research",
-      "name": "David O.",
-      "role": "Market Research & Intelligence",
-      "languages": "English · Swahili",
-      "specialty": "Market reports, area growth, developer vetting",
-      "initials": "DO",
-      "linkedin": "#"
-    }
-  ]
+  "founder": {
+    "id": "founder",
+    "name": "Emmanuel Mkuwa",
+    "role": "Founder & Managing Director",
+    "location": "Paje, Zanzibar",
+    "company": "Zanzibaba Real Estate",
+    "linkedin": "https://www.linkedin.com/in/emmanuel-mkuwa-b0a15783",
+    "photo": "/images/emmanuel-mkuwa.jpg",
+    "bio": "Emmanuel Mkuwa is the founder of Zanzibaba Real Estate, based in Paje, Zanzibar, with a second office in Stone Town. He leads investor relations for international buyers seeking beachfront villas, off-plan developments, and commercial property across Zanzibar."
+  }
 }

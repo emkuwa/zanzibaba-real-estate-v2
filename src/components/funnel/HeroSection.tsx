@@ -68,7 +68,7 @@ export function HeroSection() {
           </h1>
           <p className="mt-4 max-w-xl text-[16px] leading-[1.75] text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.4)] sm:mt-5 md:mt-6 md:text-lg">
             10–15% Airbnb-ready yields. Foreign-buyer compliant. Bilingual advisory in Paje and
-            Stone Town — licensed by ZREB & BRELA.
+            Stone Town.
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap">

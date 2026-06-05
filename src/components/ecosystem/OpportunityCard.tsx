@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
   return (
     <article className="luxury-card group overflow-hidden p-0 transition hover:shadow-premium">
-      <div className="relative h-44 overflow-hidden">
+      <div className="relative h-52 overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={opportunityImagePath(opportunity.imageKey)}

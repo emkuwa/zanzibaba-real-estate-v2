@@ -28,13 +28,13 @@ export const WHY_INVEST = {
       title: "Luxury tourism market",
       description:
         "Five-star resorts and boutique hospitality are expanding, elevating the island's profile among international luxury travellers.",
-      image: VISUAL_SYSTEM.propertyTypes.hotels,
+      image: VISUAL_SYSTEM.lifestyle.beach,
     },
     {
       title: "Emerging opportunities",
       description:
         "Off-plan property in Zanzibar offers flexible payments, early investor pricing, and access to pre-completion appreciation.",
-      image: VISUAL_SYSTEM.offerings.offPlan,
+      image: VISUAL_SYSTEM.areas.fumba,
     },
   ],
 } as const;
