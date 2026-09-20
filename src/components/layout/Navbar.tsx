@@ -12,9 +12,9 @@ function WhatsAppIcon({ className = "" }: { className?: string }) {
 export function Navbar() {
   const [open, setOpen] = useState(false);
   return <header className="fixed inset-x-0 top-0 z-50 border-b border-[#dedbd3] bg-[#fbfaf6]/95 backdrop-blur-md">
-    <nav className="mx-auto grid h-[72px] max-w-7xl grid-cols-[44px_1fr_44px] items-center px-4 md:flex md:justify-between md:px-8" aria-label="Main navigation">
+    <nav className="mx-auto grid h-[82px] max-w-7xl grid-cols-[44px_1fr_44px] items-center px-4 md:flex md:h-[88px] md:justify-between md:px-8" aria-label="Main navigation">
       <button type="button" onClick={() => setOpen(!open)} className="flex h-11 w-11 items-center justify-start text-[#102f2c] md:hidden" aria-label="Toggle menu" aria-expanded={open}><svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeWidth="1.6" d={open ? "M6 6l12 12M18 6L6 18" : "M4 7h16M4 12h16M4 17h16"} /></svg></button>
-      <Link href="/" aria-label={`${SITE.name} home`} className="justify-self-center md:justify-self-auto"><BrandLogo variant="primary" height={42} className="h-[38px] w-auto" /></Link>
+      <Link href="/" aria-label={`${SITE.name} home`} className="justify-self-center md:justify-self-auto"><BrandLogo variant="primary" height={58} className="h-[50px] w-auto md:h-[58px]" /></Link>
       <ul className="hidden items-center gap-7 md:flex">{NAV_LINKS.slice(0, 4).map((link) => <li key={link.href}><Link href={link.href} className="text-[13px] font-medium text-[#183a36] hover:text-[#a47c3c]">{link.label}</Link></li>)}</ul>
       <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center justify-self-end rounded-[4px] bg-[#078b72] text-white md:h-10 md:w-10" aria-label="WhatsApp an advisor"><WhatsAppIcon className="h-5 w-5" /></a>
     </nav>

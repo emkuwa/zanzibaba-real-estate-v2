@@ -3,7 +3,7 @@ import Link from "next/link";
 import { whatsappUrl } from "@/data/site";
 
 export function HeroSection() {
-  return <section className="bg-[#f7f4ed] pt-[72px]">
+  return <section className="bg-[#f7f4ed] pt-[82px] md:pt-[88px]">
     <div className="mx-auto max-w-7xl lg:grid lg:min-h-[760px] lg:grid-cols-[1.1fr_.9fr] lg:items-stretch">
       <div className="relative aspect-[4/3] overflow-hidden lg:order-2 lg:aspect-auto"><Image src="/images/luxury/hero/hero-cinematic-zanzibar.webp" alt="Luxury beachfront villa in Zanzibar" fill priority sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" /></div>
       <div className="flex flex-col justify-center px-6 py-9 sm:px-10 lg:order-1 lg:px-16 lg:py-20">
