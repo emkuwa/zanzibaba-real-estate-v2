@@ -6,38 +6,38 @@ const config: Config = {
     extend: {
       colors: {
         navy: {
-          DEFAULT: "#0A2E73",
-          heading: "#0B2A6B",
-          deep: "#07245A",
+          DEFAULT: "#0A584C",
+          heading: "#102F2C",
+          deep: "#073F37",
         },
         gold: {
-          DEFAULT: "#C89B3C",
-          light: "#D4AD5C",
+          DEFAULT: "#087565",
+          light: "#15927F",
         },
-        ink: "#0F172A",
-        body: "#374151",
-        muted: "#64748B",
-        surface: "#F8FAFC",
+        ink: "#172E2A",
+        body: "#44534F",
+        muted: "#697570",
+        surface: "#F7F4ED",
         sand: {
           DEFAULT: "#E8DFD0",
           light: "#F5F0E8",
         },
-        border: "#E2E8F0",
+        border: "#D8D3C8",
       },
       fontFamily: {
         serif: ["var(--font-cormorant)", "Georgia", "serif"],
         sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
       },
       borderRadius: {
-        luxury: "1.125rem",
-        "luxury-lg": "1.5rem",
+        luxury: "0.25rem",
+        "luxury-lg": "0.4rem",
       },
       boxShadow: {
-        card: "0 2px 8px rgba(10, 46, 115, 0.06), 0 1px 2px rgba(10, 46, 115, 0.04)",
-        luxury: "0 8px 32px rgba(7, 36, 90, 0.1), 0 2px 8px rgba(7, 36, 90, 0.06)",
+        card: "0 2px 8px rgba(16, 47, 44, 0.05)",
+        luxury: "0 8px 28px rgba(16, 47, 44, 0.08)",
         premium:
-          "0 12px 40px rgba(7, 36, 90, 0.12), 0 4px 12px rgba(200, 155, 60, 0.08)",
-        glass: "0 8px 32px rgba(7, 36, 90, 0.08)",
+          "0 12px 36px rgba(16, 47, 44, 0.1)",
+        glass: "0 8px 28px rgba(16, 47, 44, 0.08)",
       },
       backgroundImage: {
         "hero-gradient":

@@ -17,22 +17,22 @@ export function EcosystemPageShell({
   return (
     <>
       <Navbar />
-      <main>
-        <header className="border-b border-border bg-navy-deep px-4 py-10 text-white sm:px-6 lg:px-8">
+      <main className="min-h-screen bg-[#fbfaf6]">
+        <header className="border-b border-border bg-[#f7f4ed] px-5 py-12 text-navy-heading sm:px-6 md:py-16 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <Link href="/" className="text-[14px] font-medium text-gold hover:underline">
+            <Link href="/" className="text-[12px] font-semibold uppercase tracking-[.1em] text-gold hover:underline">
               ← Zanzibar Investment Ecosystem
             </Link>
-            <p className="mt-4 text-[13px] font-semibold uppercase tracking-[0.18em] text-gold">
+            <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
               {eyebrow}
             </p>
-            <h1 className="mt-2 font-serif text-[2rem] font-semibold leading-tight md:text-4xl">
+            <h1 className="mt-2 max-w-3xl font-serif text-[2.45rem] font-medium leading-[.98] tracking-[-.035em] md:text-6xl">
               {title}
             </h1>
-            <p className="mt-4 max-w-3xl text-[16px] leading-relaxed text-white/80">{description}</p>
+            <p className="mt-5 max-w-2xl text-[15px] leading-7 text-body">{description}</p>
           </div>
         </header>
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">{children}</div>
+        <div className="mx-auto max-w-7xl px-5 py-10 sm:px-6 md:py-14 lg:px-8">{children}</div>
       </main>
       <Footer />
     </>

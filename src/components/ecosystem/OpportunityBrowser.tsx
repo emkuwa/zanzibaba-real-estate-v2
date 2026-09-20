@@ -20,7 +20,7 @@ export function OpportunityBrowser() {
         <button
           type="button"
           onClick={() => setTag("")}
-          className={`rounded-full px-3 py-1.5 text-[13px] font-medium ${!tag ? "bg-navy text-white" : "border border-border bg-white text-navy"}`}
+          className={`rounded-[3px] px-3 py-2 text-[13px] font-medium ${!tag ? "bg-navy text-white" : "border border-border bg-[#fbfaf6] text-navy"}`}
         >
           All tags
         </button>
@@ -29,7 +29,7 @@ export function OpportunityBrowser() {
             key={t}
             type="button"
             onClick={() => setTag(t === tag ? "" : t)}
-            className={`rounded-full px-3 py-1.5 text-[13px] font-medium ${tag === t ? "bg-gold text-white" : "border border-border bg-white text-navy"}`}
+            className={`rounded-[3px] px-3 py-2 text-[13px] font-medium ${tag === t ? "bg-gold text-white" : "border border-border bg-[#fbfaf6] text-navy"}`}
           >
             {t}
           </button>
@@ -42,7 +42,7 @@ export function OpportunityBrowser() {
             key={t || "all"}
             type="button"
             onClick={() => setType(t)}
-            className={`rounded-full px-3 py-1.5 text-[13px] font-medium capitalize ${type === t ? "bg-navy text-white" : "border border-border bg-white text-navy"}`}
+            className={`rounded-[3px] px-3 py-2 text-[13px] font-medium capitalize ${type === t ? "bg-navy text-white" : "border border-border bg-[#fbfaf6] text-navy"}`}
           >
             {t || "All types"}
           </button>

@@ -16,7 +16,7 @@ export function Section({
       id={id}
       className={cn(
         "py-7 md:py-12 lg:py-14",
-        dark ? "bg-navy-deep text-white" : "bg-white",
+        dark ? "bg-navy-deep text-white" : "bg-[#fbfaf6]",
         className
       )}
     >

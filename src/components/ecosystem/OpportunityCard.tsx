@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 
 export function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
   return (
-    <article className="luxury-card group overflow-hidden p-0 transition hover:shadow-premium">
-      <div className="relative h-52 overflow-hidden">
+    <article className="group overflow-hidden border border-border bg-[#fbfaf6] transition hover:shadow-premium">
+      <div className="relative h-56 overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={opportunityImagePath(opportunity.imageKey)}
@@ -16,9 +16,9 @@ export function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
         <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 to-transparent" />
         <span
           className={cn(
-            "absolute right-3 top-3 rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide",
+            "absolute right-3 top-3 rounded-[3px] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[.12em]",
             opportunity.status === "available"
-              ? "bg-gold text-white"
+              ? "bg-navy-deep text-white"
               : "bg-white/20 text-white backdrop-blur-sm"
           )}
         >
@@ -39,7 +39,7 @@ export function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
           {opportunity.tags.slice(0, 4).map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-border bg-surface px-2 py-0.5 text-[11px] font-medium text-navy-heading"
+              className="rounded-[2px] border border-border bg-surface px-2 py-0.5 text-[11px] font-medium text-navy-heading"
             >
               {tag}
             </span>
@@ -58,7 +58,7 @@ export function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
         </div>
         <Link
           href="/#qualify"
-          className="mt-4 inline-block text-[14px] font-semibold text-gold hover:underline"
+          className="mt-4 inline-block border-b border-navy-heading text-[13px] font-semibold text-navy-heading"
         >
           Request advisory →
         </Link>

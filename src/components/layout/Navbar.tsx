@@ -1,168 +1,26 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { SITE, NAV_LINKS, whatsappUrl } from "@/data/site";
-import { cn } from "@/lib/utils";
+import { NAV_LINKS, whatsappUrl } from "@/data/site";
 
 function WhatsAppIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-    </svg>
-  );
+  return <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-1.74-.87-2.88-1.55-4.03-3.52-.3-.52.3-.48.87-1.61.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-2.72 2.98 1.98 7.39 2.35 7.89 2.83 3.77 6.88 4.99 8.55 3.49.57-.51.75-1.26.82-1.7.08-.45.08-.83-.02-1.01-.1-.18-.28-.27-.58-.42M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26C2.17 6.44 6.6 2.01 12.05 2.01a9.82 9.82 0 0 1 9.88 9.89c0 5.45-4.44 9.89-9.88 9.89M20.46 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.23-6.16-3.48-8.41" /></svg>;
+}
+
+function Wordmark() {
+  return <span className="flex flex-col items-center text-[#102f2c]"><span className="font-serif text-[20px] font-semibold leading-none tracking-[.14em] md:text-[24px]">ZANZIBABA</span><span className="mt-1 text-[6px] font-semibold uppercase leading-none tracking-[.34em]">Real Estate</span></span>;
 }
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-border/60 bg-white/95 shadow-md backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
-      )}
-    >
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8 lg:py-3.5"
-        aria-label="Main navigation"
-      >
-        <Link
-          href="/"
-          className="text-[22px] font-bold tracking-[.08em] text-white md:text-[26px] transition-colors duration-300"
-          style={{ color: scrolled ? "#0a2a28" : "white" }}
-          aria-label={`${SITE.name} home`}
-        >
-          ZANZIBARA
-        </Link>
-
-        <ul className="hidden items-center gap-6 xl:gap-8 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              {link.href.startsWith("/#") ? (
-                <button
-                  type="button"
-                  className={cn(
-                    "text-sm font-medium transition hover:text-gold",
-                    scrolled ? "text-navy" : "text-white/90"
-                  )}
-                >
-                  {link.label}
-                </button>
-              ) : (
-                <Link
-                  href={link.href}
-                  className={cn(
-                    "text-sm font-medium transition hover:text-gold",
-                    scrolled ? "text-navy" : "text-white/90"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              )}
-            </li>
-          ))}
-        </ul>
-
-        <div className="hidden items-center gap-3 lg:flex">
-          <a
-            href={whatsappUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              "flex items-center gap-2 rounded-sm px-4 py-2.5 text-sm font-medium transition",
-              scrolled
-                ? "bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366]/20"
-                : "bg-white/10 text-white hover:bg-white/20"
-            )}
-          >
-            <WhatsAppIcon className="h-4 w-4" />
-            Speak to Advisor
-          </a>
-          <a
-            href={whatsappUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-sm bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#20b858]"
-          >
-            <WhatsAppIcon className="h-4 w-4" />
-            WhatsApp
-          </a>
-        </div>
-
-        <button
-          type="button"
-          className={cn(
-            "min-h-[44px] min-w-[44px] rounded-luxury p-2.5 lg:hidden",
-            scrolled ? "text-navy" : "text-white"
-          )}
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-        >
-          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            {open ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
-      </nav>
-
-      {open && (
-        <div className="border-t border-white/10 bg-white px-4 py-4 lg:hidden">
-          {NAV_LINKS.map((link) =>
-            link.href.startsWith("/#") ? (
-              <button
-                key={link.href}
-                type="button"
-                onClick={() => setOpen(false)}
-                className="block w-full py-3.5 text-left text-[16px] font-medium text-navy hover:text-gold"
-              >
-                {link.label}
-              </button>
-            ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="block w-full py-3.5 text-left text-[16px] font-medium text-navy hover:text-gold"
-              >
-                {link.label}
-              </Link>
-            )
-          )}
-          <div className="mt-4 space-y-3">
-            <a
-              href={whatsappUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-sm bg-[#25D366] py-3.5 text-sm font-semibold text-white"
-            >
-              <WhatsAppIcon className="h-5 w-5" />
-              WhatsApp an Advisor
-            </a>
-            <Link
-              href="/#qualify"
-              onClick={() => setOpen(false)}
-              className="flex items-center justify-center rounded-sm border border-navy py-3.5 text-sm font-semibold text-navy"
-            >
-              Smart Property Match
-            </Link>
-          </div>
-        </div>
-      )}
-    </header>
-  );
+  return <header className="sticky inset-x-0 top-0 z-50 border-b border-[#dedbd3] bg-[#fbfaf6]/95 backdrop-blur-md">
+    <nav className="mx-auto grid h-[72px] max-w-7xl grid-cols-[44px_1fr_44px] items-center px-4 md:flex md:h-[78px] md:justify-between md:px-8" aria-label="Main navigation">
+      <button type="button" onClick={() => setOpen(!open)} className="flex h-11 w-11 items-center justify-start text-[#102f2c] md:hidden" aria-label="Toggle menu" aria-expanded={open}><svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeWidth="1.6" d={open ? "M6 6l12 12M18 6L6 18" : "M4 7h16M4 12h16M4 17h16"} /></svg></button>
+      <Link href="/" className="justify-self-center md:justify-self-auto" aria-label="Zanzibaba Real Estate home"><Wordmark /></Link>
+      <ul className="hidden items-center gap-7 md:flex">{NAV_LINKS.slice(0,4).map((item)=><li key={item.href}><Link href={item.href} className="text-[12px] font-semibold uppercase tracking-[.08em] text-[#294b46] hover:text-[#087565]">{item.label}</Link></li>)}</ul>
+      <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center justify-self-end rounded-[4px] bg-[#078b72] text-white md:h-10 md:w-10" aria-label="WhatsApp an advisor"><WhatsAppIcon className="h-5 w-5" /></a>
+    </nav>
+    {open && <div className="border-t border-[#dedbd3] bg-[#fbfaf6] px-5 py-5 md:hidden">{NAV_LINKS.map((item)=><Link key={item.href} href={item.href} onClick={()=>setOpen(false)} className="block border-b border-[#e7e2d8] py-3 font-serif text-xl text-[#123a35]">{item.label}</Link>)}<a href={whatsappUrl()} className="mt-5 flex min-h-14 items-center justify-center gap-2 bg-[#073f37] text-[11px] font-semibold uppercase tracking-[.12em] text-white"><WhatsAppIcon className="h-4 w-4" /> WhatsApp an advisor</a></div>}
+  </header>;
 }
