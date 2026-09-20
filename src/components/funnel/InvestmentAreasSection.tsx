@@ -3,26 +3,25 @@
 import { INVESTMENT_AREAS } from "@/data/seo-content";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { LuxuryImage } from "@/components/ui/LuxuryImage";
-import { scrollToId } from "@/lib/utils";
+import Link from "next/link";
 
 export function InvestmentAreasSection() {
   return (
-    <Section id="areas" dark>
+    <Section id="areas">
       <SectionHeader
-        eyebrow="Popular Investment Areas"
-        title="Where international buyers invest"
-        description="From Paje's Airbnb corridor to Stone Town heritage — explore Zanzibar's premier property markets."
-        light
+        eyebrow="Locations"
+        title="Explore Zanzibar"
+        description="Each area offers a different character — from lively east coast to quiet north-east and heritage Stone Town."
       />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
         {INVESTMENT_AREAS.map((area) => (
-          <article
+          <Link
             key={area.slug}
-            id={area.slug}
-            className="luxury-card-dark group overflow-hidden p-0 transition hover:border-gold/25 hover:shadow-premium"
+            href={`/areas#${area.slug}`}
+            className="group block overflow-hidden"
           >
-            <div className="relative h-40 overflow-hidden sm:h-52">
+            <article className="relative aspect-[3/2] overflow-hidden rounded-luxury-lg">
               <LuxuryImage
                 asset={area.image}
                 overlay="card"
@@ -30,38 +29,24 @@ export function InvestmentAreasSection() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="transition duration-700 group-hover:scale-105"
               />
-              <h3 className="absolute bottom-3 left-4 z-10 font-serif text-[1.25rem] font-semibold text-white drop-shadow-lg md:text-xl">
-                {area.name}
-              </h3>
-            </div>
-            <div className="p-4 md:p-5">
-              <p className="text-[14px] font-semibold text-gold">{area.headline}</p>
-              <p className="mt-2 line-clamp-2 text-[15px] leading-[1.65] text-white/75">
-                {area.description}
-              </p>
-              <ul className="mt-3 flex flex-wrap gap-1.5">
-                {area.highlights.slice(0, 2).map((h) => (
-                  <li
-                    key={h}
-                    className="rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-[13px] text-white/70"
-                  >
-                    {h}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </article>
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/20 to-transparent" />
+              <div className="absolute inset-0 flex flex-col justify-end p-5">
+                <p className="text-xs font-medium uppercase tracking-wider text-gold/90">
+                  {area.headline}
+                </p>
+                <h3 className="mt-1 font-serif text-xl font-semibold text-white">
+                  {area.name}
+                </h3>
+                <p className="mt-1 text-xs text-white/70 line-clamp-2">
+                  {area.description}
+                </p>
+                <span className="mt-3 text-xs font-medium uppercase tracking-wider text-white/60 transition-colors group-hover:text-gold">
+                  Explore Area →
+                </span>
+              </div>
+            </article>
+          </Link>
         ))}
-      </div>
-
-      <div className="mt-6 text-center md:mt-7">
-        <button
-          type="button"
-          onClick={() => scrollToId("qualify")}
-          className="text-[15px] font-semibold text-gold hover:underline"
-        >
-          Match me with opportunities →
-        </button>
       </div>
     </Section>
   );

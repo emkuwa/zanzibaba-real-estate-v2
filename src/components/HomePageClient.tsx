@@ -3,17 +3,13 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/funnel/HeroSection";
-import { HeroTrustBar } from "@/components/funnel/HeroTrustBar";
+import { FeaturedOpportunitiesSection } from "@/components/funnel/FeaturedOpportunitiesSection";
 import { InvestmentAreasSection } from "@/components/funnel/InvestmentAreasSection";
 import { WhyInvestSection } from "@/components/funnel/WhyInvestSection";
 import { QualificationFunnel } from "@/components/funnel/QualificationFunnel";
 import { TrustSection } from "@/components/funnel/TrustSection";
 import { FaqSection } from "@/components/funnel/FaqSection";
 import { StickyWhatsApp } from "@/components/conversion/StickyWhatsApp";
-import { ExitIntentPopup } from "@/components/conversion/ExitIntentPopup";
-import { LeadMagnetPopup } from "@/components/conversion/LeadMagnetPopup";
-import { AIChatbot } from "@/components/chat/AIChatbot";
-import { FeaturedOpportunitiesSection } from "./funnel/FeaturedOpportunitiesSection";
 
 export default function HomePageClient() {
   return (
@@ -22,33 +18,27 @@ export default function HomePageClient() {
       <main className="overflow-hidden">
         {/* 1. Hero */}
         <HeroSection />
-        
-        {/* 2. Trust Bar */}
-        <HeroTrustBar />
-        
-        {/* 3. Featured Opportunities */}
+
+        {/* 2. Featured Properties */}
         <FeaturedOpportunitiesSection />
-        
-        {/* 4. Investment Areas */}
-        <InvestmentAreasSection />
-        
-        {/* 5. Why Invest in Zanzibar */}
-        <WhyInvestSection />
-        
-        {/* 6. Investor Concierge */}
-        <QualificationFunnel />
-        
-        {/* 8. Testimonials */}
+
+        {/* 3. Trust + Founder */}
         <TrustSection />
-        
-        {/* 9. FAQ */}
+
+        {/* 4. Smart Property Match */}
+        <QualificationFunnel />
+
+        {/* 5. Investment Areas */}
+        <InvestmentAreasSection />
+
+        {/* 6. Why Invest */}
+        <WhyInvestSection />
+
+        {/* 7. FAQ */}
         <FaqSection />
       </main>
       <Footer />
       <StickyWhatsApp />
-      <ExitIntentPopup />
-      <LeadMagnetPopup />
-      <AIChatbot />
     </>
   );
 }

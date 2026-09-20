@@ -2,113 +2,98 @@
 
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { LuxuryImage } from "@/components/ui/LuxuryImage";
-import { Button } from "@/components/ui/Button";
-import { scrollToId } from "@/lib/utils";
-import { trackCtaClick } from "@/lib/gtag";
 import { VISUAL_SYSTEM } from "@/data/visual-system";
+import Link from "next/link";
 
-const FEATURED_OPPORTUNITIES = [
+const FEATURED_PROPERTIES = [
   {
-    id: "luxury-villas",
-    title: "Luxury Beachfront Villas",
-    description: "Turnkey investment properties with professional Airbnb management and 12-15% gross yields.",
+    id: "luxury-villa",
+    title: "Beachfront Villa — Nungwi",
+    type: "Beachfront Villa",
+    location: "Nungwi",
+    price: "$420,000",
+    features: "4 Bedrooms · Private Pool · Beachfront",
     image: VISUAL_SYSTEM.propertyTypes.villas,
-    tag: "Premium ROI",
-    cta: "Explore Villas",
   },
   {
-    id: "hospitality-assets",
-    title: "Hospitality & Resort Assets",
-    description: "Boutique hotels, resort residences, and hospitality investments with established operations.",
-    image: VISUAL_SYSTEM.propertyTypes.hotels,
-    tag: "Hospitality",
-    cta: "View Hotels",
+    id: "investment-land",
+    title: "Development Land — Paje",
+    type: "Investment Land",
+    location: "Paje",
+    price: "$85,000",
+    features: "50×100m · Beach Access · Clear Title",
+    image: VISUAL_SYSTEM.areas.paje,
   },
   {
     id: "off-plan",
-    title: "Off-Plan Development",
-    description: "Early access to master-planned communities with flexible payment plans and pre-completion pricing.",
+    title: "Off-Plan Residence — East Coast",
+    type: "Off-Plan",
+    location: "East Coast",
+    price: "From $180,000",
+    features: "Staged Payments · Early Entry Pricing",
     image: VISUAL_SYSTEM.offerings.offPlan,
-    tag: "Early Access",
-    cta: "Off-Plan Info",
-  },
-  {
-    id: "commercial",
-    title: "Commercial & Mixed-Use",
-    description: "Institutional-grade commercial assets in growth corridors with strong rental demand.",
-    image: VISUAL_SYSTEM.areas["stone-town"],
-    tag: "Institutional",
-    cta: "Commercial Portfolio",
   },
 ];
 
 export function FeaturedOpportunitiesSection() {
   return (
-    <Section id="opportunities" className="py-8 md:py-12">
+    <Section id="featured" className="py-10 md:py-16">
       <SectionHeader
-        eyebrow="Featured Investment Themes"
-        title="Premium Zanzibar Investment Opportunities"
-        description="Curated investment themes for discerning international investors — from luxury villas to hospitality assets and development projects."
+        eyebrow="Current Listings"
+        title="Featured Opportunities in Zanzibar"
+        description="Curated properties with local advisory support — beachfront villas, development land, and investment opportunities."
         align="center"
       />
 
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {FEATURED_OPPORTUNITIES.map((opportunity) => (
-          <article
-            key={opportunity.id}
-            className="group relative overflow-hidden rounded-luxury-lg border border-border bg-white shadow-sm transition-all hover:shadow-premium hover:-translate-y-1"
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {FEATURED_PROPERTIES.map((property) => (
+          <Link
+            key={property.id}
+            href="/opportunities"
+            className="group block overflow-hidden"
           >
-            <div className="relative h-52 overflow-hidden sm:h-56">
-              <LuxuryImage
-                asset={opportunity.image}
-                overlay="minimal"
-                sizes="(max-width: 768px) 100vw, 25vw"
-                className="transition duration-700 group-hover:scale-105"
-              />
-              <div className="absolute left-4 top-4">
-                <span className="rounded-full bg-gold/90 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-                  {opportunity.tag}
+            <article className="flex h-full flex-col">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-luxury-lg">
+                <LuxuryImage
+                  asset={property.image}
+                  overlay="minimal"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="transition duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/60 via-transparent to-transparent" />
+                <span className="absolute left-3 top-3 rounded-sm bg-white/95 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-navy backdrop-blur-sm">
+                  {property.location}
+                </span>
+                <span className="absolute right-3 top-3 rounded-sm bg-navy-deep/80 px-2.5 py-1 text-[0.65rem] font-medium uppercase tracking-wider text-white backdrop-blur-sm">
+                  {property.type}
                 </span>
               </div>
-            </div>
-            <div className="p-5">
-              <h3 className="font-serif text-lg font-semibold text-navy-heading">
-                {opportunity.title}
-              </h3>
-              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-body">
-                {opportunity.description}
-              </p>
-              <Button
-                variant="outline"
-                size="sm"
-                className="mt-4 w-full"
-                onClick={() => {
-                  trackCtaClick(opportunity.cta, "featured_opportunities");
-                  scrollToId("qualify");
-                }}
-              >
-                {opportunity.cta}
-              </Button>
-            </div>
-          </article>
+              <div className="flex flex-1 flex-col pt-4">
+                <h3 className="font-serif text-lg font-semibold text-navy-heading transition-colors group-hover:text-gold">
+                  {property.title}
+                </h3>
+                <p className="mt-1 font-serif text-base font-semibold text-gold">
+                  {property.price}
+                </p>
+                <p className="mt-2 text-xs text-muted">
+                  {property.features}
+                </p>
+                <p className="mt-3 text-xs font-medium uppercase tracking-wider text-navy/60 transition-colors group-hover:text-gold">
+                  View Property →
+                </p>
+              </div>
+            </article>
+          </Link>
         ))}
       </div>
 
-      <div className="mt-8 text-center">
-        <Button
-          variant="gold"
-          size="lg"
-          onClick={() => {
-            trackCtaClick("Get Personalized Investment Recommendations", "featured_opportunities_bottom");
-            scrollToId("qualify");
-          }}
-          className="px-8"
+      <div className="mt-10 text-center">
+        <Link
+          href="/opportunities"
+          className="inline-flex items-center justify-center rounded-sm border border-navy px-8 py-3.5 text-sm font-semibold text-navy transition hover:bg-navy hover:text-white"
         >
-          Get Personalized Investment Recommendations
-        </Button>
-        <p className="mt-3 text-sm text-muted">
-          Our concierge team matches you with opportunities based on your investment profile
-        </p>
+          View All Properties
+        </Link>
       </div>
     </Section>
   );

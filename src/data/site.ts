@@ -1,9 +1,9 @@
 export const SITE = {
   name: "Zanzibaba Real Estate",
-  brandLine: "Zanzibar Investment Ecosystem",
+  brandLine: "Local Property Advisory — Zanzibar",
   tagline:
-    "The primary platform foreigners use to discover, invest in, relocate to, and experience Zanzibar — luxury real estate, intelligence, and AI concierge.",
-  legalName: "Zanzibaba Co. Ltd",
+    "Curated villas, beachfront land, hospitality assets and off-plan opportunities for international buyers.",
+  legalName: "Zanzibaba Company Limited",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "https://realestate.zanzibaba.com",
@@ -76,28 +76,37 @@ export const SEO_KEYWORDS = [
   "Stone Town investment",
 ] as const;
 
+/** Simplified buyer-facing desktop navigation */
 export const NAV_LINKS = [
-  { href: "/opportunities", label: "Opportunities" },
-  { href: "/intelligence", label: "Intelligence" },
+  { href: "/opportunities", label: "Properties" },
+  { href: "/areas", label: "Areas" },
+  { href: "/foreign-ownership-guide", label: "Buy in Zanzibar" },
   { href: "/insights", label: "Insights" },
-  { href: "/rentals", label: "Rentals" },
-  { href: "/ecosystem", label: "Ecosystem" },
-  { href: "/#qualify", label: "Concierge" },
+  { href: "/#about", label: "About" },
 ] as const;
 
-export const FOOTER_AUTHORITY_LINKS = [
-  { href: "/ecosystem", label: "Investment Ecosystem" },
-  { href: "/opportunities", label: "Opportunity Database" },
-  { href: "/developers", label: "Developer Portal" },
-  { href: "/intelligence", label: "Intelligence Hub" },
-  { href: "/rentals", label: "Rentals & Relocation" },
+/** Mobile navigation — primary links only */
+export const MOBILE_NAV_LINKS = [
+  { href: "/opportunities", label: "Properties" },
+  { href: "/areas", label: "Areas" },
+  { href: "/foreign-ownership-guide", label: "Buy in Zanzibar" },
   { href: "/insights", label: "Insights" },
-  { href: "/#why-zanzibar", label: "Why Zanzibar" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/#about", label: "About" },
+  { href: "/contact", label: "Contact" },
+] as const;
+
+/** Secondary links for footer */
+export const FOOTER_AUTHORITY_LINKS = [
+  { href: "/opportunities", label: "Properties" },
+  { href: "/areas", label: "Area Guides" },
+  { href: "/foreign-ownership-guide", label: "Foreign Ownership" },
+  { href: "/zanzibar-residency-guide", label: "Residency Guide" },
+  { href: "/insights", label: "Insights" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 export const WHATSAPP_MESSAGE =
-  "Hello Zanzibaba, I am exploring the Zanzibar Investment Ecosystem — property, investment, or relocation.";
+  "Hello Zanzibaba, I'm interested in property in Zanzibar. Please send me more information.";
 
 export function whatsappUrl(message?: string): string {
   const text = encodeURIComponent(message ?? WHATSAPP_MESSAGE);

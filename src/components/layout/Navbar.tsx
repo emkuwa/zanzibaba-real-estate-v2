@@ -1,14 +1,21 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { NAV_LINKS } from "@/data/site";
+import { NAV_LINKS, SITE } from "@/data/site";
 import { BRAND_LOGO } from "@/data/brand";
-import { Button } from "@/components/ui/Button";
 import { BrandLogo } from "@/components/ui/BrandLogo";
-import { cn, scrollToId } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 const NAVBAR_LOGO_HEIGHT = BRAND_LOGO.sizes.navbarDesktop;
+
+function WhatsAppIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  );
+}
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,10 +31,10 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
           ? "border-b border-border/60 bg-white/95 shadow-md backdrop-blur-md"
-          : "bg-gradient-to-b from-navy-deep/90 via-navy-deep/50 to-transparent"
+          : "border-b border-transparent bg-transparent"
       )}
     >
       <nav
@@ -37,7 +44,7 @@ export function Navbar() {
         <Link
           href="/"
           className="relative inline-flex h-11 w-[11rem] shrink-0 items-center sm:h-12 sm:w-[12rem] md:h-[3.25rem] md:w-[13.5rem]"
-          aria-label={BRAND_LOGO.alt}
+          aria-label={`${SITE.name} home`}
         >
           <BrandLogo
             variant="reverse"
@@ -59,7 +66,6 @@ export function Navbar() {
               {link.href.startsWith("/#") ? (
                 <button
                   type="button"
-                  onClick={() => scrollToId(link.href.replace("/#", ""))}
                   className={cn(
                     "text-sm font-medium transition hover:text-gold",
                     scrolled ? "text-navy" : "text-white/90"
@@ -82,14 +88,30 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden lg:block">
-          <Button
-            variant={scrolled ? "gold" : "secondary"}
-            size="sm"
-            onClick={() => scrollToId("qualify")}
+        <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href={`https://wa.me/${SITE.whatsapp}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              "flex items-center gap-2 rounded-sm px-4 py-2.5 text-sm font-medium transition",
+              scrolled
+                ? "bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366]/20"
+                : "bg-white/10 text-white hover:bg-white/20"
+            )}
           >
-            AI Concierge
-          </Button>
+            <WhatsAppIcon className="h-4 w-4" />
+            Speak to Advisor
+          </a>
+          <a
+            href={`https://wa.me/${SITE.whatsapp}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 rounded-sm bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#20b858]"
+          >
+            <WhatsAppIcon className="h-4 w-4" />
+            WhatsApp
+          </a>
         </div>
 
         <button
@@ -113,10 +135,10 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-white/10 bg-navy-deep px-4 py-4 lg:hidden">
-          <div className="mb-4 border-b border-white/10 pb-4">
+        <div className="border-t border-white/10 bg-white px-4 py-4 lg:hidden">
+          <div className="mb-4 border-b border-border/50 pb-4">
             <BrandLogo
-              variant="reverse"
+              variant="primary"
               height={BRAND_LOGO.sizes.mobileMenu}
               className="h-10 w-auto"
             />
@@ -126,11 +148,8 @@ export function Navbar() {
               <button
                 key={link.href}
                 type="button"
-                onClick={() => {
-                  scrollToId(link.href.replace("/#", ""));
-                  setOpen(false);
-                }}
-                className="block w-full py-3.5 text-left text-[16px] text-white/90 hover:text-gold"
+                onClick={() => setOpen(false)}
+                className="block w-full py-3.5 text-left text-[16px] font-medium text-navy hover:text-gold"
               >
                 {link.label}
               </button>
@@ -139,23 +158,30 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="block w-full py-3.5 text-left text-[16px] text-white/90 hover:text-gold"
+                className="block w-full py-3.5 text-left text-[16px] font-medium text-navy hover:text-gold"
               >
                 {link.label}
               </Link>
             )
           )}
-          <Button
-            variant="gold"
-            size="sm"
-            className="mt-2 w-full"
-            onClick={() => {
-              scrollToId("qualify");
-              setOpen(false);
-            }}
-          >
-            Get Matched
-          </Button>
+          <div className="mt-4 space-y-3">
+            <a
+              href={`https://wa.me/${SITE.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 rounded-sm bg-[#25D366] py-3.5 text-sm font-semibold text-white"
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+              WhatsApp an Advisor
+            </a>
+            <Link
+              href="/#qualify"
+              onClick={() => setOpen(false)}
+              className="flex items-center justify-center rounded-sm border border-navy py-3.5 text-sm font-semibold text-navy"
+            >
+              Smart Property Match
+            </Link>
+          </div>
         </div>
       )}
     </header>
