@@ -7,9 +7,10 @@ export const INTENT_OPTIONS = [
   "Airbnb Investment",
   "Retirement Living",
   "Commercial Opportunity",
+  "Find Accommodation",
 ] as const;
 
-export const RENTAL_INTENTS = ["Luxury Vacation Rental", "Long-Term Rental"] as const;
+export const RENTAL_INTENTS = ["Luxury Vacation Rental", "Long-Term Rental", "Find Accommodation"] as const;
 
 export function isRentalIntent(intent?: string): boolean {
   return !!intent && (RENTAL_INTENTS as readonly string[]).includes(intent);
@@ -83,6 +84,21 @@ export const PREFER_OPTIONS = [
   "Both",
 ] as const;
 
+export const BUDGET_PER_NIGHT_OPTIONS = [
+  "Under $100",
+  "$100–$250",
+  "$250–$500",
+  "$500–$1,000",
+  "$1,000+",
+] as const;
+
+export const GUEST_COUNT_OPTIONS = [
+  "1–2 guests",
+  "3–4 guests",
+  "5–6 guests",
+  "7+ guests",
+] as const;
+
 export const TIMELINE_OPTIONS = [
   "Immediately",
   "Within 3 months",
@@ -99,6 +115,10 @@ export type QualificationAnswers = {
   rentalType?: string;
   stayDuration?: string;
   rentalBudget?: string;
+  budgetPerNight?: string;
+  checkInDate?: string;
+  checkOutDate?: string;
+  guests?: string;
   lifestylePrefer?: string;
   buyingFor?: string;
   propertyType?: string;
@@ -113,6 +133,10 @@ export type FunnelStepKey =
   | "rentalType"
   | "stayDuration"
   | "rentalBudget"
+  | "budgetPerNight"
+  | "checkInDate"
+  | "checkOutDate"
+  | "guests"
   | "lifestylePrefer"
   | "buyingFor"
   | "propertyType"
@@ -183,6 +207,26 @@ export const FUNNEL_STEP_CONFIG: Record<FunnelStepKey, FunnelStepConfig> = {
     question: "When are you planning to invest?",
     options: TIMELINE_OPTIONS,
   },
+  checkInDate: {
+    key: "checkInDate",
+    question: "Check-in date?",
+    options: [] as readonly string[],
+  },
+  checkOutDate: {
+    key: "checkOutDate",
+    question: "Check-out date?",
+    options: [] as readonly string[],
+  },
+  guests: {
+    key: "guests",
+    question: "Number of guests?",
+    options: GUEST_COUNT_OPTIONS,
+  },
+  budgetPerNight: {
+    key: "budgetPerNight",
+    question: "Budget per night?",
+    options: BUDGET_PER_NIGHT_OPTIONS,
+  },
 };
 
 const RENTAL_STEP_KEYS: FunnelStepKey[] = [
@@ -193,6 +237,15 @@ const RENTAL_STEP_KEYS: FunnelStepKey[] = [
   "lifestylePrefer",
 ];
 
+const ACCOMMODATION_STEP_KEYS: FunnelStepKey[] = [
+  "intent",
+  "checkInDate",
+  "checkOutDate",
+  "guests",
+  "budgetPerNight",
+  "area",
+];
+
 const BUY_STEP_KEYS: FunnelStepKey[] = [
   "intent",
   "propertyType",
@@ -201,12 +254,17 @@ const BUY_STEP_KEYS: FunnelStepKey[] = [
   "timeline",
 ];
 
-export function getStepKeys(path: FunnelPath): FunnelStepKey[] {
+export function isAccommodationIntent(intent?: string): boolean {
+  return intent === "Find Accommodation";
+}
+
+export function getStepKeys(path: FunnelPath, intent?: string): FunnelStepKey[] {
+  if (intent === "Find Accommodation") return ACCOMMODATION_STEP_KEYS;
   return path === "rental" ? RENTAL_STEP_KEYS : BUY_STEP_KEYS;
 }
 
-export function getStepOrder(path: FunnelPath): (FunnelStepKey | "contact")[] {
-  return [...getStepKeys(path), "contact"];
+export function getStepOrder(path: FunnelPath, intent?: string): (FunnelStepKey | "contact")[] {
+  return [...getStepKeys(path, intent), "contact"];
 }
 
 /** @deprecated Use getStepKeys + FUNNEL_STEP_CONFIG */

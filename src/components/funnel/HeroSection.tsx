@@ -1,68 +1,18 @@
-"use client";
-
-import { VISUAL_SYSTEM } from "@/data/visual-system";
-import { LuxuryBackground } from "@/components/ui/LuxuryImage";
-import { SITE } from "@/data/site";
+import Image from "next/image";
 import Link from "next/link";
+import { whatsappUrl } from "@/data/site";
 
 export function HeroSection() {
-  return (
-    <section className="relative isolate min-h-[100svh] overflow-hidden" aria-label="Hero">
-      <div className="absolute inset-0 z-0">
-        <LuxuryBackground
-          asset={VISUAL_SYSTEM.hero.primary}
-          overlay="cinematic"
-          priority
-          className="h-full w-full"
-        />
+  return <section className="bg-[#f7f4ed] pt-[72px]">
+    <div className="mx-auto max-w-7xl lg:grid lg:min-h-[760px] lg:grid-cols-[1.1fr_.9fr] lg:items-stretch">
+      <div className="relative aspect-[4/3] overflow-hidden lg:order-2 lg:aspect-auto"><Image src="/images/luxury/hero/hero-cinematic-zanzibar.webp" alt="Luxury beachfront villa in Zanzibar" fill priority sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" /></div>
+      <div className="flex flex-col justify-center px-6 py-9 sm:px-10 lg:order-1 lg:px-16 lg:py-20">
+        <p className="text-[11px] font-semibold uppercase tracking-[.18em] text-[#123a35]">Exceptional property.</p>
+        <h1 className="mt-3 font-serif text-[3.15rem] font-medium italic leading-[.9] tracking-[-.045em] text-[#102f2c] sm:text-6xl lg:text-7xl">Extraordinary<br />Zanzibar.</h1>
+        <p className="mt-6 max-w-lg text-[15px] leading-7 text-[#394744]">Curated villas, beachfront land, hospitality assets and off-plan opportunities for international buyers.</p>
+        <div className="mt-7 grid gap-3 sm:max-w-lg sm:grid-cols-2"><Link href="/opportunities" className="flex min-h-14 items-center justify-center bg-[#073f37] px-6 text-[11px] font-semibold uppercase tracking-[.13em] text-white">Explore Properties <span className="ml-3 text-lg">→</span></Link><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="flex min-h-14 items-center justify-center border border-[#163d38] px-6 text-[11px] font-semibold uppercase tracking-[.11em] text-[#123a35]">◉ <span className="ml-2">WhatsApp an Advisor</span></a></div>
+        <p className="mt-7 flex items-start gap-3 border-t border-[#d9d4c9] pt-5 text-xs leading-5 text-[#47534f]"><span className="text-lg">⌖</span> Local team in Zanzibar&nbsp; · &nbsp;Due diligence support&nbsp; · &nbsp;International buyer advisory</p>
       </div>
-
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-4 pb-8 pt-[4.5rem] sm:px-6 lg:px-8 lg:pb-14 lg:pt-28">
-        <div className="max-w-3xl">
-          <h1 className="font-serif text-[2.25rem] font-semibold leading-[1.05] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] sm:text-5xl lg:text-[3.75rem] xl:text-[4.25rem]">
-            Exceptional Property.
-            <br />
-            Extraordinary Zanzibar.
-          </h1>
-          <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-white/80 sm:text-lg lg:text-xl">
-            Curated villas, beachfront land, hospitality assets and off-plan opportunities for international buyers.
-          </p>
-
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link
-              href="/opportunities"
-              className="inline-flex items-center justify-center rounded-sm bg-[#C89B3C] px-8 py-4 text-sm font-bold uppercase tracking-wider text-navy-deep transition hover:bg-[#d4ab55]"
-            >
-              Explore Properties
-            </Link>
-            <a
-              href={`https://wa.me/${SITE.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-sm border border-white/40 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/15"
-            >
-              WhatsApp an Advisor
-            </a>
-          </div>
-
-          <p className="mt-8 text-[12px] font-medium uppercase tracking-[0.2em] text-white/50">
-            Local team in Zanzibar · Due diligence support · International buyer advisory
-          </p>
-
-          <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
-            {[
-              "Based in Paje and Stone Town",
-              "Founder-led advisory",
-              "Buyer support from search to handover",
-            ].map((item) => (
-              <li key={item} className="flex items-center gap-2 text-sm text-white/65">
-                <span className="h-1 w-1 shrink-0 rounded-full bg-[#C89B3C]/70" aria-hidden />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
+    </div>
+  </section>;
 }

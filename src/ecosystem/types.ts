@@ -75,6 +75,7 @@ export type InvestorRecord = {
   persona: PersonaType;
   intent?: string;
   budget?: string;
+  leadType?: "accommodation" | "investment";
   qualification?: Record<string, string>;
   funnelStage: FunnelStage;
   leadScore: number;

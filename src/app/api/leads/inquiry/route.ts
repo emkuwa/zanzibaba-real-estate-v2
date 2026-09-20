@@ -19,7 +19,36 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email or phone required" }, { status: 400 });
     }
 
-    const investor = await createInvestorInquiry({ name, email, phone, country, source, qualification });
+    let investor: Awaited<ReturnType<typeof createInvestorInquiry>>;
+    try {
+      investor = await createInvestorInquiry({ name, email, phone, country, source, qualification });
+    } catch (e) {
+      // Storage failure must NOT block email delivery or the user's submission.
+      console.error("[leads] Lead storage failed; proceeding with email delivery only.", e);
+      investor = {
+        id: `inv_pending_${Date.now().toString(36)}`,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        name,
+        email,
+        phone,
+        country,
+        source,
+        persona: "investor",
+        intent: qualification?.intent ?? qualification?.lookingFor,
+        leadType:
+          (qualification?.intent === "Find Accommodation" ? "accommodation" : "investment") as
+            | "accommodation"
+            | "investment",
+        qualification,
+        funnelStage: "new",
+        leadScore: 0,
+        priority: "medium",
+        assignedAgent: "zanzibar-research",
+        followUpAt: new Date(Date.now() + 24 * 3600000).toISOString(),
+        tags: [],
+      } as Awaited<ReturnType<typeof createInvestorInquiry>>;
+    }
 
     const emailResult = await sendInquiryEmail({
       name,

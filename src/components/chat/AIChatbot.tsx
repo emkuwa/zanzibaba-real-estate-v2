@@ -44,9 +44,19 @@ const FAQ_RESPONSES: Record<string, string> = {
 type BotStep =
   | { type: "intent" }
   | { type: "rental"; key: "rentalType" | "stayDuration" | "rentalBudget" | "lifestylePrefer" }
+  | { type: "accommodation"; key: "checkInDate" | "checkOutDate" | "guests" | "budgetPerNight" | "area" }
   | { type: "buy"; key: "area" | "budget" | "propertyType" };
 
 function getBotSteps(intent: string): BotStep[] {
+  if (intent === "Find Accommodation") {
+    return [
+      { type: "accommodation", key: "checkInDate" },
+      { type: "accommodation", key: "checkOutDate" },
+      { type: "accommodation", key: "guests" },
+      { type: "accommodation", key: "budgetPerNight" },
+      { type: "accommodation", key: "area" },
+    ];
+  }
   if (isRentalIntent(intent)) {
     return [
       { type: "rental", key: "rentalType" },
@@ -63,6 +73,9 @@ function getBotSteps(intent: string): BotStep[] {
 }
 
 function getStepOptions(step: BotStep): readonly string[] {
+  if (step.type === "accommodation") {
+    return FUNNEL_STEP_CONFIG[step.key].options;
+  }
   if (step.type === "rental") {
     return FUNNEL_STEP_CONFIG[step.key].options;
   }
@@ -75,6 +88,9 @@ function getStepOptions(step: BotStep): readonly string[] {
 }
 
 function getStepQuestion(step: BotStep): string {
+  if (step.type === "accommodation") {
+    return FUNNEL_STEP_CONFIG[step.key].question;
+  }
   if (step.type === "rental") {
     return FUNNEL_STEP_CONFIG[step.key].question;
   }
@@ -132,7 +148,8 @@ export function AIChatbot() {
 
   function handleIntent(option: string) {
     setMessages((m) => [...m, { role: "user", text: option }]);
-    setAnswers((a) => ({ ...a, intent: option, path: isRentalIntent(option) ? "rental" : "buy" }));
+    const path = option === "Find Accommodation" ? "rental" : isRentalIntent(option) ? "rental" : "buy";
+    setAnswers((a) => ({ ...a, intent: option, path }));
     const steps = getBotSteps(option);
     setBotSteps(steps);
     setPhase("flow");
@@ -156,15 +173,16 @@ export function AIChatbot() {
         setStepIndex(nextIndex);
       }, 400);
     } else {
-      const isRental = botSteps[0]?.type === "rental";
+      const isRentOrAccommodation = botSteps[0]?.type === "rental" || botSteps[0]?.type === "accommodation";
+      const isAccommodation = botSteps[0]?.type === "accommodation";
       setTimeout(() => {
         setMessages((m) => [
           ...m,
           {
             role: "bot",
-            text: isRental
-              ? "Excellent — I can match you with luxury rental villas and expat-friendly stays. May I have your contact details?"
-              : "Excellent choices. I can connect you with investment and purchase opportunities. May I have your contact details?",
+            text: isAccommodation
+              ? "Perfect — I'll find luxury stays matching your dates and budget. May I have your contact details?"
+              : "Excellent — I can match you with luxury rental villas and expat-friendly stays. May I have your contact details?",
           },
         ]);
         setPhase("lead");
@@ -189,6 +207,7 @@ export function AIChatbot() {
 
   async function submitLead(e: React.FormEvent) {
     e.preventDefault();
+    const isAccommodation = answers.intent === "Find Accommodation";
     await fetch("/api/leads/inquiry", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -197,6 +216,7 @@ export function AIChatbot() {
         email: lead.email,
         phone: lead.phone,
         source: "ai_chatbot",
+        leadType: isAccommodation ? "accommodation" : "investment",
         qualification: answers,
       }),
     });
@@ -205,7 +225,9 @@ export function AIChatbot() {
       ...m,
       {
         role: "bot",
-        text: `Thank you, ${lead.name}! Our concierge will reach you at ${lead.email}. You can also WhatsApp us for immediate assistance.`,
+        text: isAccommodation
+          ? `Thank you, ${lead.name}! Our accommodation concierge will find stays matching your dates (${answers.checkInDate} to ${answers.checkOutDate}) and send options to ${lead.email}.`
+          : `Thank you, ${lead.name}! Our concierge will reach you at ${lead.email}. You can also WhatsApp us for immediate assistance.`,
       },
     ]);
     setPhase("done");
@@ -219,6 +241,9 @@ export function AIChatbot() {
         : phase === "flow" && botSteps[stepIndex]
           ? getStepOptions(botSteps[stepIndex])
           : null;
+
+  const currentStep = botSteps[stepIndex];
+  const isDateStep = currentStep?.type === "accommodation" && (currentStep.key === "checkInDate" || currentStep.key === "checkOutDate");
 
   function handleOptionClick(option: string) {
     if (phase === "topic") handleTopic(option);
@@ -340,7 +365,7 @@ export function AIChatbot() {
                 </form>
               )}
 
-              {currentOptions && phase !== "lead" && phase !== "done" && (
+              {currentOptions && phase !== "lead" && phase !== "done" && currentOptions.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                   {currentOptions.map((opt) => (
                     <button
@@ -353,6 +378,17 @@ export function AIChatbot() {
                     </button>
                   ))}
                 </div>
+              )}
+
+              {isDateStep && (
+                <input
+                  type="date"
+                  required
+                  value={answers[currentStep.key] || ""}
+                  onChange={(e) => handleFlowOption(e.target.value)}
+                  className="w-full rounded-sm border border-border px-3 py-2 text-sm"
+                  placeholder={currentStep.key === "checkInDate" ? "Check-in date" : "Check-out date"}
+                />
               )}
 
               <div className="flex flex-wrap gap-2 pt-2">
